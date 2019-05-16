@@ -33,12 +33,12 @@ public class Mapa {
         Itaporanga = new Cidade("Itaporanga");
 
         Itabaiana.addCidadeAdjacente(new Adjacente(Areia_Branca));
+        //Itabaiana.addCidadeAdjacente(new Adjacente(Aracaju));
         Itabaiana.addCidadeAdjacente(new Adjacente(Moita_Bonita));
         Itabaiana.addCidadeAdjacente(new Adjacente(Ribeiropolis));
         Itabaiana.addCidadeAdjacente(new Adjacente(Lagarto));
         Aracaju.addCidadeAdjacente(new Adjacente(Areia_Branca));
-        Areia_Branca.addCidadeAdjacente(new Adjacente(Areia_Branca));
-
+        Aracaju.addCidadeAdjacente(new Adjacente(BarraDosCoqueiros));
 
 
     }

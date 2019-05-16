@@ -5,6 +5,7 @@ import Grafo.Adjacente;
 import Grafo.Cidade;
 import Grafo.Mapa;
 
+
 public class Largura {
     private Fila fronteira;
     private Cidade inicio;
@@ -21,7 +22,7 @@ public class Largura {
         achou = false;
     }
 
-    public void buscar() {
+    public void buscar01() {
         Cidade primeiro = fronteira.getPrimeiro();
         System.out.println("Primeiro: " + primeiro.getNome());
         if (primeiro == objetivo) {
@@ -38,16 +39,16 @@ public class Largura {
                 }
             }
             if (fronteira.getNumeroElementos() > 0) {
-                buscar();
+                buscar01();
             }
 
         }
 
     }
 
-    public static void main(String[] args) {
-        Mapa mapa = new Mapa();
+    //public static void main(String[] args) {
+        /*Mapa mapa = new Mapa();
         Largura l = new Largura(mapa.getItabaiana(), mapa.getAracaju());
-        l.buscar();
-    }
+        l.buscar01(); */
+    //}
 }

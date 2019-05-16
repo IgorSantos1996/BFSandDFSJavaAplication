@@ -2,6 +2,7 @@ package Grafo;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.awt.geom.*;
 
 public class Cidade {
     private String nome;

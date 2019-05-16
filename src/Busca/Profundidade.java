@@ -42,10 +42,10 @@ public class Profundidade {
         System.out.println("Desempilhou: " + fronteira.desempilhar().getNome());
     }
 
-    public static void main(String args[]) {
-        Mapa mapa = new Mapa();
+    //public static void main(String args[]) {
+        /*Mapa mapa = new Mapa();
         Profundidade p = new Profundidade(mapa.getItabaiana(), mapa.getAracaju());
-        p.buscar();
-    }
+        p.buscar(); */
+    //}
 
 }
