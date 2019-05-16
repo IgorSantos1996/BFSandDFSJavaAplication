@@ -1,6 +1,6 @@
 package Grafo;
 
-import java.awt.geom.Area;
+//import java.awt.geom.Area;
 
 public class Mapa {
     private Cidade Itabaiana;
@@ -41,6 +41,12 @@ public class Mapa {
         Aracaju.addCidadeAdjacente(new Adjacente(BarraDosCoqueiros));
 
 
+    }
+
+    public void setCidade(String cidade){
+        if (cidade.equals("itabaiana")){
+            getItabaiana();
+        }
     }
 
     public Cidade getItabaiana() {
