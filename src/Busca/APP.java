@@ -55,7 +55,7 @@ public class APP implements ActionListener {
         mnBarra.add(mnArquivo);
         mnBarra.add(mnExemplos);
 
-        cb_cidades.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Ruim", "Regular", "Médio",  "Bom", "Otimo" }));
+        cb_cidades.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Cidades", "Regular", "Médio",  "Bom", "Otimo" }));
         cb_cidades.setName("cb_cidades");
 
         frame.setJMenuBar(mnBarra);
@@ -64,10 +64,10 @@ public class APP implements ActionListener {
         frame.add(cb_cidades);
         frame.add(label);
 
-        btlargura.setBounds(30, 50, 150, 30);
-        btprofundidade.setBounds(50, 100, 150, 30);
-        cb_cidades.setBounds(30,120,150, 30);
-        label.setBounds(30, 150, 150, 30);
+        btlargura.setBounds(30, 400, 150, 30);
+        btprofundidade.setBounds(300, 400, 150, 30);
+        cb_cidades.setBounds(60,50,150, 30);
+        label.setBounds(30, 50, 150, 30);
 
         frame.setPreferredSize(new java.awt.Dimension(500,500));
         frame.pack();
