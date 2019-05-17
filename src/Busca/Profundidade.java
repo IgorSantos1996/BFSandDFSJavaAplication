@@ -25,8 +25,9 @@ public class Profundidade {
         Cidade topo = fronteira.getTopo();
         System.out.println("Topo: " + topo.getNome());
 
-        if (topo == objetivo) {
+        if (topo.equals(objetivo)) {
             achou = true;
+
         } else {
             for (Adjacente a : topo.getAdjacentes()) {
                 if (!achou) {

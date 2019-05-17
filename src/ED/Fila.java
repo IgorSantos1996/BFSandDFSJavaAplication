@@ -64,7 +64,7 @@ public class Fila {
     }
 
     public static void main(String args[]) {
-        Fila fila = new Fila(13);
+        Fila fila = new Fila(20);
         Mapa mapa = new Mapa();
     }
 }

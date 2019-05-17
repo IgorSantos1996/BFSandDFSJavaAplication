@@ -25,7 +25,7 @@ public class Largura {
     public void buscar01() {
         Cidade primeiro = fronteira.getPrimeiro();
         System.out.println("Primeiro: " + primeiro.getNome());
-        if (primeiro == objetivo) {
+        if (primeiro.equals(objetivo)) {
             achou = true;
 
         } else {

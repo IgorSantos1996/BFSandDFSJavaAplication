@@ -7,7 +7,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
+
 
 public class APP implements ActionListener {
     //private JPanel painel = null;
@@ -16,7 +16,7 @@ public class APP implements ActionListener {
     private JLabel label03;
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnConsultar;
-    private JMenuItem miSair, miBotao,miAdjacencias;
+    private JMenuItem miSair, miBotao,miAdjacencias,miCodigoFonte;
     private JButton btlargura;
     private JButton btprofundidade;
     private JFrame frame;
@@ -32,6 +32,7 @@ public class APP implements ActionListener {
         mnConsultar = new JMenu("Consultar");
         miSair = new JMenuItem("Sair");
         miAdjacencias = new JMenuItem("Matris de Adjacencias");
+        miCodigoFonte = new JMenuItem("Consultar código fonte");
         miBotao = new JMenuItem("Botao");
         btlargura = new JButton("Largura");
         btprofundidade = new JButton("Profundidade");
@@ -52,6 +53,7 @@ public class APP implements ActionListener {
         int largura = img.getIconWidth();
         label03 = new JLabel(img);
         miAdjacencias.addActionListener(this);
+        miCodigoFonte.addActionListener(this);
         miSair.addActionListener(this);
         miBotao.addActionListener(this);
         btlargura.addActionListener(this);
@@ -65,6 +67,7 @@ public class APP implements ActionListener {
         mnArquivo.add(miBotao);
         mnConsultar.add(miSair);
         mnConsultar.add(miAdjacencias);
+        mnConsultar.add(miCodigoFonte);
 
         mnBarra.add(mnArquivo);
         mnBarra.add(mnConsultar);
@@ -128,14 +131,18 @@ public class APP implements ActionListener {
             l.buscar01();
 
         } else if (e.getSource().equals(btprofundidade)) {
-            Profundidade p = new Profundidade(mapa.getItabaiana(), mapa.getAracaju());
+            Profundidade p = new Profundidade(mapa.getFrei_Paulo(), mapa.getSimao_Dias());
             p.buscar();
         } else if (e.getSource().equals(cb_cidades)) {
             System.out.println(cb_cidades.getSelectedIndex());
         } else if (e.getSource().equals(miSair)) {
             System.exit(0);
-        }else if (e.getSource().equals(mnConsultar)){
-            //JOptionPane.showMessageDialog(frame,JOptionPane.INFORMATION_MESSAGE);
+        }else if (e.getSource().equals(miAdjacencias)){
+            String []opcao = {"fechar"};
+            JOptionPane.showOptionDialog(null,"Funcionalidade a ser implementada", "Consultar Matriz Adj", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null,opcao, opcao[0]);
+            Toolkit.getDefaultToolkit().beep();
+        }else if(e.getSource().equals(miCodigoFonte)){
+
         }
 
     }
