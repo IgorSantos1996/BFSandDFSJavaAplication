@@ -4,8 +4,10 @@ import Grafo.Mapa;
 
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 public class APP implements ActionListener {
     //private JPanel painel = null;
@@ -13,21 +15,23 @@ public class APP implements ActionListener {
     private JLabel label02;
     private JLabel label03;
     private JMenuBar mnBarra;
-    private JMenu mnArquivo, mnExemplos;
-    private JMenuItem miSair, miBotao;
+    private JMenu mnArquivo, mnConsultar;
+    private JMenuItem miSair, miBotao,miAdjacencias;
     private JButton btlargura;
     private JButton btprofundidade;
     private JFrame frame;
     private static JComboBox cb_cidades;
     private static JComboBox cb_cidades02;
+    private Image iconeTitulo;
 
 
     public APP() {
         frame = new JFrame("Bike Show");
         mnBarra = new JMenuBar();
         mnArquivo = new JMenu("Arquivos");
-        mnExemplos = new JMenu("Exemplos");
+        mnConsultar = new JMenu("Consultar");
         miSair = new JMenuItem("Sair");
+        miAdjacencias = new JMenuItem("Matris de Adjacencias");
         miBotao = new JMenuItem("Botao");
         btlargura = new JButton("Largura");
         btprofundidade = new JButton("Profundidade");
@@ -35,26 +39,19 @@ public class APP implements ActionListener {
         cb_cidades02 = new JComboBox();
         label = new JLabel("De");
         label02 = new JLabel("Para");
-        //Image imagem = ImageIO.read(getClass().getResource("dslike.png"));
-
-
 
         inicializarComponentes();
 
+
     }
 
-
     private void inicializarComponentes() {
-        //frame.setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("dslike.jpg")));
-
-
         ImageIcon img = new ImageIcon("D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA\\BuscasSemInformacao\\src\\Busca\\mapa.jpg");
         //pega a altura e largura
         int altura = img.getIconHeight();
         int largura = img.getIconWidth();
         label03 = new JLabel(img);
-
-
+        miAdjacencias.addActionListener(this);
         miSair.addActionListener(this);
         miBotao.addActionListener(this);
         btlargura.addActionListener(this);
@@ -66,10 +63,11 @@ public class APP implements ActionListener {
 
 
         mnArquivo.add(miBotao);
-        mnExemplos.add(miSair);
+        mnConsultar.add(miSair);
+        mnConsultar.add(miAdjacencias);
 
         mnBarra.add(mnArquivo);
-        mnBarra.add(mnExemplos);
+        mnBarra.add(mnConsultar);
 
         cb_cidades.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Cidades", "Regular", "Médio", "Bom", "Otimo"}));
         cb_cidades.setName("cb_cidades");
@@ -96,12 +94,12 @@ public class APP implements ActionListener {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
-
-
+        //frame.setIconImage(createImage("Busca/dsike.jpg").getImage());
 
     }
-
-
+    //private ImageIcon createImage(String path){
+      //  return new ImageIcon(java.awt.Toolkit.getDefaultToolkit().getClass().getResource(path));
+    //}
 
 
     public static void main(String[] args) {
@@ -136,6 +134,8 @@ public class APP implements ActionListener {
             System.out.println(cb_cidades.getSelectedIndex());
         } else if (e.getSource().equals(miSair)) {
             System.exit(0);
+        }else if (e.getSource().equals(mnConsultar)){
+            //JOptionPane.showMessageDialog(frame,JOptionPane.INFORMATION_MESSAGE);
         }
 
     }
