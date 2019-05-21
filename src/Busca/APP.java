@@ -1,5 +1,6 @@
 package Busca;
 
+import Grafo.Cidade;
 import Grafo.Mapa;
 
 import javax.swing.*;
@@ -7,6 +8,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 
 public class APP implements ActionListener {
@@ -85,15 +87,15 @@ public class APP implements ActionListener {
         frame.add(label02);
         frame.add(label03);
 
-        btlargura.setBounds(30, 400, 150, 30);
-        btprofundidade.setBounds(500, 400, 150, 30);
-        cb_cidades.setBounds(60, 20, 150, 30);
-        cb_cidades02.setBounds(500, 20, 150,30);
-        label.setBounds(30, 20, 200, 30);
-        label02.setBounds(470,20,200,30);
-        label03.setBounds(20,30, altura,largura);
+        btlargura.setBounds(650, 350, 150, 30);
+        btprofundidade.setBounds(650, 300, 150, 30);
+        cb_cidades.setBounds(650, 70, 150, 30);
+        cb_cidades02.setBounds(650, 100, 150,30);
+        label.setBounds(620, 70, 200, 30);
+        label02.setBounds(620,100,200,30);
+        label03.setBounds(20,30, altura, largura);
 
-        frame.setPreferredSize(new java.awt.Dimension(700, 600));
+        frame.setPreferredSize(new java.awt.Dimension(900, 700));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
@@ -134,7 +136,7 @@ public class APP implements ActionListener {
             Profundidade p = new Profundidade(mapa.getFrei_Paulo(), mapa.getSimao_Dias());
             p.buscar();
         } else if (e.getSource().equals(cb_cidades)) {
-            System.out.println(cb_cidades.getSelectedIndex());
+            System.out.println(cb_cidades.getSelectedItem().toString());
         } else if (e.getSource().equals(miSair)) {
             System.exit(0);
         }else if (e.getSource().equals(miAdjacencias)){

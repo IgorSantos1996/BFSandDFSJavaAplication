@@ -3,8 +3,10 @@ package Grafo;
 //import java.awt.geom.Area;
 
 import javax.sql.rowset.CachedRowSet;
+import java.util.ArrayList;
 
 public class Mapa {
+    // Caso crescer o numero de Cidades alterar no APP, no combobox, atual = 22
     private Cidade Itabaiana;
     private Cidade Aracaju;
     private Cidade Areia_Branca;
@@ -393,7 +395,6 @@ public class Mapa {
     public void setMoita_Bonita(Cidade moita_Bonita) {
         Moita_Bonita = moita_Bonita;
     }
-
 
 
 }
