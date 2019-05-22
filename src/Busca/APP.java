@@ -134,7 +134,7 @@ public class APP implements ActionListener {
 
         if (e.getSource().equals(btlargura)) {
             Largura l = new Largura(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
-                    PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
+                    PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()) , mapa);
             l.buscar01();
 
         } else if (e.getSource().equals(btprofundidade)) {

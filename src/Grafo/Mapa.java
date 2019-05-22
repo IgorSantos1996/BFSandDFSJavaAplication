@@ -154,7 +154,7 @@ public class Mapa {
         Nossa_Senhora_do_Socorro.addCidadeAdjacente(new Adjacente(Aracaju));
 
         /*Adj de Pedra Mole*/
-        Pedra_Mole.addCidadeAdjacente(new Adjacente(Frei_Paulo));
+        Pedra_Mole.addCidadeAdjacente(new Adjacente(criarCidade(Frei_Paulo.getNome())));
         Pedra_Mole.addCidadeAdjacente(new Adjacente(Macambira));
         Pedra_Mole.addCidadeAdjacente(new Adjacente(Nossa_Senhora_aparecida));
         Pedra_Mole.addCidadeAdjacente(new Adjacente(Nossa_Senhora_da_Gloria));
@@ -237,8 +237,14 @@ public class Mapa {
         Aracaju.addCidadeAdjacente(new Adjacente(Riachuelo));
         Aracaju.addCidadeAdjacente(new Adjacente(Sao_Cristovao));
         Aracaju.addCidadeAdjacente(new Adjacente(Areia_Branca));
+
+        //Itabaiana.setNome("Itabaiana Modificada");
     }
 
+    public Cidade criarCidade(String Nome){
+       Cidade cidade = new Cidade(Nome);
+       return cidade;
+    }
     public void setCidade(String cidade){
         if (cidade.equals("itabaiana")){
             getItabaiana();
