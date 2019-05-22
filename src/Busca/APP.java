@@ -25,9 +25,10 @@ public class APP implements ActionListener {
     private static JComboBox cb_cidades;
     private static JComboBox cb_cidades02;
     private Image iconeTitulo;
-
+    private Mapa mapa;
 
     public APP() {
+        mapa = new Mapa();
         frame = new JFrame("Bike Show");
         mnBarra = new JMenuBar();
         mnArquivo = new JMenu("Arquivos");
@@ -74,9 +75,12 @@ public class APP implements ActionListener {
         mnBarra.add(mnArquivo);
         mnBarra.add(mnConsultar);
 
-        cb_cidades.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Cidades", "Regular", "Médio", "Bom", "Otimo"}));
+        ArrayList<String> Nome_Cidades = new ArrayList<>();
+        mapa.getCidades().forEach(item->Nome_Cidades.add(item.getNome()));
+        cb_cidades.setModel(new javax.swing.DefaultComboBoxModel(Nome_Cidades.toArray()));
         cb_cidades.setName("cb_cidades");
-        cb_cidades02.setModel(new javax.swing.DefaultComboBoxModel(new String[]{"Cidades", "Regular", "Médio", "Bom", "Otimo"}));
+        Nome_Cidades.remove(0);
+        cb_cidades02.setModel(new javax.swing.DefaultComboBoxModel(Nome_Cidades.toArray()));
         cb_cidades02.setName("cb_cidades02");
         frame.setJMenuBar(mnBarra);
         frame.add(btlargura);
@@ -127,9 +131,10 @@ public class APP implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        Mapa mapa = new Mapa();
+
         if (e.getSource().equals(btlargura)) {
-            Largura l = new Largura(mapa.getItabaiana(), mapa.getAracaju());
+            Largura l = new Largura(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
+                    PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
             l.buscar01();
 
         } else if (e.getSource().equals(btprofundidade)) {
@@ -137,9 +142,21 @@ public class APP implements ActionListener {
             p.buscar();
         } else if (e.getSource().equals(cb_cidades)) {
             System.out.println(cb_cidades.getSelectedItem().toString());
+            ArrayList<String> Nome_Cidades = new ArrayList<>();
+            for(Cidade cidade: mapa.getCidades()) {
+                if(!cidade.getNome().equals(cb_cidades.getSelectedItem().toString())){
+                    Nome_Cidades.add(cidade.getNome());
+                }
+            }
+            cb_cidades02.setModel(new javax.swing.DefaultComboBoxModel(Nome_Cidades.toArray()));
+            cb_cidades02.setName("cb_cidades02");
+
+
+        } else if (e.getSource().equals(cb_cidades02)) {
+            System.out.println(cb_cidades02.getSelectedItem().toString());
         } else if (e.getSource().equals(miSair)) {
             System.exit(0);
-        }else if (e.getSource().equals(miAdjacencias)){
+        } else if (e.getSource().equals(miAdjacencias)){
             String []opcao = {"fechar"};
             JOptionPane.showOptionDialog(null,"Funcionalidade a ser implementada", "Consultar Matriz Adj", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null,opcao, opcao[0]);
             Toolkit.getDefaultToolkit().beep();
@@ -147,5 +164,15 @@ public class APP implements ActionListener {
 
         }
 
+    }
+
+    private Cidade PesquisaCidadeNome(String nome)
+    {
+        for(Cidade c : mapa.getCidades()){
+            if(c.getNome().equals(nome)){
+                return c;
+            }
+        }
+        return null;
     }
 }

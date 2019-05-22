@@ -30,7 +30,10 @@ public class Mapa {
     private Cidade Carira;
     private Cidade Simao_Dias;
 
+    private ArrayList<Cidade> Cidades;
+
     public Mapa() {
+        Cidades = new ArrayList<>();
         Itabaiana = new Cidade("Itabaiana");
         Frei_Paulo = new Cidade("Frei Paulo");
         Moita_Bonita = new Cidade("Moita Bonita");
@@ -52,6 +55,28 @@ public class Mapa {
         Areia_Branca = new Cidade("Areia Branca");
         Aracaju = new Cidade("Aracaju");
         Simao_Dias = new Cidade("Simao Dias");
+
+        Cidades.add(Itabaiana);
+        Cidades.add(Frei_Paulo);
+        Cidades.add(Moita_Bonita);
+        Cidades.add(Lagarto);
+        Cidades.add(Laranjeiras);
+        Cidades.add(Macambira);
+        Cidades.add(Malhador);
+        Cidades.add(Nossa_Senhora_aparecida);
+        Cidades.add(Nossa_Senhora_da_Gloria);
+        Cidades.add(Nossa_Senhora_das_Dores);
+        Cidades.add(Nossa_Senhora_do_Socorro);
+        Cidades.add(Pedra_Mole);
+        Cidades.add(Pinhao);
+        Cidades.add(Riachuelo);
+        Cidades.add(Ribeiropolis);
+        Cidades.add(Sao_Cristovao);
+        Cidades.add(Sao_Domingos);
+        Cidades.add(Carira);
+        Cidades.add(Areia_Branca);
+        Cidades.add(Aracaju);
+        Cidades.add(Simao_Dias);
 
         /* Adj de Itabaiana */
         Itabaiana.addCidadeAdjacente(new Adjacente(Areia_Branca));
@@ -396,5 +421,11 @@ public class Mapa {
         Moita_Bonita = moita_Bonita;
     }
 
+    public ArrayList<Cidade> getCidades() {
+        return Cidades;
+    }
 
+    public void setCidades(ArrayList<Cidade> cidades) {
+        Cidades = cidades;
+    }
 }

@@ -16,6 +16,10 @@ public class Cidade {
 
     }
 
+    public Cidade() {
+
+    }
+
     public void addCidadeAdjacente(Adjacente cidade) {
         adjacenteList.add(cidade);
     }
