@@ -93,7 +93,6 @@ public class Mapa {
         Frei_Paulo.addCidadeAdjacente(new Adjacente(Nossa_Senhora_aparecida));
         Frei_Paulo.addCidadeAdjacente(new Adjacente(Nossa_Senhora_da_Gloria));
         Frei_Paulo.addCidadeAdjacente(new Adjacente(Pedra_Mole));
-        Frei_Paulo.addCidadeAdjacente(new Adjacente(Pedra_Mole));
 
         Frei_Paulo.addCidadeAdjacente(new Adjacente(Ribeiropolis));
 
@@ -154,7 +153,7 @@ public class Mapa {
         Nossa_Senhora_do_Socorro.addCidadeAdjacente(new Adjacente(Aracaju));
 
         /*Adj de Pedra Mole*/
-        Pedra_Mole.addCidadeAdjacente(new Adjacente(criarCidade(Frei_Paulo.getNome())));
+        Pedra_Mole.addCidadeAdjacente(new Adjacente(Frei_Paulo));
         Pedra_Mole.addCidadeAdjacente(new Adjacente(Macambira));
         Pedra_Mole.addCidadeAdjacente(new Adjacente(Nossa_Senhora_aparecida));
         Pedra_Mole.addCidadeAdjacente(new Adjacente(Nossa_Senhora_da_Gloria));

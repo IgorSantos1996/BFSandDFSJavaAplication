@@ -11,8 +11,10 @@ public class Largura {
     private Fila fronteira;
     private Cidade inicio;
     private Cidade objetivo;
+    private Cidade ultima;
     private boolean achou;
     private Mapa mapa;
+    int cont = 0;
 
     public Largura(Cidade inicio, Cidade objetivo, Mapa mapa) {
         this.inicio = inicio;
@@ -22,22 +24,44 @@ public class Largura {
 
         fronteira = new Fila(20);
         fronteira.enfileirar(inicio);
+        ultima = inicio;
         achou = false;
     }
 
     public void buscar01() {
         while(!fronteira.filaVazia()){
             Cidade primeiro = fronteira.desenfileirar();
-            System.out.println(primeiro.getNome());
+            setTrue(primeiro.getNome());
+            System.out.println("Primeira: "+primeiro.getNome());
             for (Adjacente a: PesquisaCidadeNome(primeiro.getNome()).getAdjacentes()){
+                //System.out.println("Adjacente: "+a.getCidade().getNome());
+                if (!VerificaTrue(a.getCidade().getNome())) {
+                    if (!a.getCidade().getNome().equals(ultima.getNome())) {
+                        fronteira.enfileirar(a.getCidade());
+                    }
+                }
                 a.getCidade().setVisitado(true);
+                //setTrue(a.getCidade().getNome());
 
-                fronteira.enfileirar(a.getCidade());
             }
 
-            if (primeiro.getNome().equals(objetivo.getNome())){
+//            for (Cidade cid : mapa.getCidades())
+//            {
+//                System.out.println("Cidade: "+cid.getNome());
+//                System.out.println("Visitada: "+cid.isVisitado());
+//            }
+            ultima = primeiro;
+            if (pesquisaVisitados()){
                 break;
             }
+//            cont++;
+//            if(cont == 10){
+//                break;
+//            }
+//            System.out.println("quant: "+fronteira.getNumeroElementos());
+////            if (primeiro.getNome().equals(objetivo.getNome())){
+////                break;
+//            }
 
         }
 //
@@ -62,6 +86,38 @@ public class Largura {
 //
 //        }
 
+
+    }
+
+    private boolean pesquisaVisitados()
+    {
+        for(Cidade c : mapa.getCidades()){
+            if(!c.isVisitado()){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    private boolean VerificaTrue(String nome)
+    {
+        for(Cidade c : mapa.getCidades()){
+            if(c.getNome().equals(nome)){
+                if (c.isVisitado()){
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
+
+    private void setTrue(String nome)
+    {
+        for(Cidade c : mapa.getCidades()){
+            if(c.getNome().equals(nome)){
+                c.setVisitado(true);
+            }
+        }
     }
 
     private Cidade PesquisaCidadeNome(String nome)
