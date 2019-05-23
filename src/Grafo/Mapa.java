@@ -93,7 +93,6 @@ public class Mapa {
         Frei_Paulo.addCidadeAdjacente(new Adjacente(Nossa_Senhora_aparecida));
         Frei_Paulo.addCidadeAdjacente(new Adjacente(Nossa_Senhora_da_Gloria));
         Frei_Paulo.addCidadeAdjacente(new Adjacente(Pedra_Mole));
-
         Frei_Paulo.addCidadeAdjacente(new Adjacente(Ribeiropolis));
 
         /*Adj de Moita Bonita*/
