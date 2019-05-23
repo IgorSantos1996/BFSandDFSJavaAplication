@@ -50,7 +50,7 @@ public class APP implements ActionListener {
     }
 
     private void inicializarComponentes() {
-        ImageIcon img = new ImageIcon("D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA\\BuscasSemInformacao\\src\\Busca\\mapa.jpg");
+        ImageIcon img = new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\src\\Busca\\mapa.JPEG");
         //pega a altura e largura
         int altura = img.getIconHeight();
         int largura = img.getIconWidth();
@@ -138,7 +138,8 @@ public class APP implements ActionListener {
             l.buscar01();
 
         } else if (e.getSource().equals(btprofundidade)) {
-            Profundidade p = new Profundidade(mapa.getFrei_Paulo(), mapa.getSimao_Dias());
+            Profundidade p = new Profundidade(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
+                    PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
             p.buscar();
         } else if (e.getSource().equals(cb_cidades)) {
             System.out.println(cb_cidades.getSelectedItem().toString());

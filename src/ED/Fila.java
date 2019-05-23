@@ -16,7 +16,6 @@ public class Fila {
         inicio = 0;
         fim = -1;
         numeroElementos = 0;
-
     }
 
     public void enfileirar(Cidade cidade) {
@@ -28,7 +27,6 @@ public class Fila {
             numeroElementos++;
         } else {
             System.out.println("A fila ja está cheia");
-
         }
     }
 
@@ -38,7 +36,6 @@ public class Fila {
             if (inicio == tamanho) {
                 inicio = 0;
             }
-
             numeroElementos--;
             return temp;
         } else {
@@ -63,8 +60,12 @@ public class Fila {
         return numeroElementos;
     }
 
+    public int getInicio() {
+        return inicio;
+    }
+    
     public static void main(String args[]) {
-        Fila fila = new Fila(20);
+        Fila fila = new Fila(21);
         Mapa mapa = new Mapa();
     }
 }

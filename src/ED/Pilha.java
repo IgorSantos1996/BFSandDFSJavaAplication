@@ -8,7 +8,6 @@ public class Pilha {
     private Cidade[] cidades;
     private int topo;
 
-
     public Pilha(int tamanho) {
         this.tamanho = tamanho;
         cidades = new Cidade[this.tamanho];
@@ -26,7 +25,6 @@ public class Pilha {
     public Cidade desempilhar() {
         if (!pilhaVazia()) {
             return cidades[topo--];
-
         } else {
             System.out.println("A pilha já está vazia");
             return null;
@@ -46,9 +44,8 @@ public class Pilha {
     }
 
     public static void main(String[] args) {
-        Pilha pilha = new Pilha(20);
+        Pilha pilha = new Pilha(21);
         Mapa mapa = new Mapa();
 
     }
-
 }

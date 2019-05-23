@@ -32,7 +32,7 @@ public class Profundidade {
             for (Adjacente a : topo.getAdjacentes()) {
                 if (!achou) {
                     System.out.println("Verificando se já visitado: " + a.getCidade().getNome());
-                    if (!a.getCidade().isVisitado()) {
+                    if (a.getCidade().isVisitado() == false) {
                         a.getCidade().setVisitado(true);
                         fronteira.empilhar(a.getCidade());
                         buscar();

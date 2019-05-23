@@ -21,10 +21,10 @@ public class Cidade {
     }
 
     public void addCidadeAdjacente(Adjacente cidade) {
-       // Cidade c = new Cidade();
-        //c.setNome(cidade.getCidade().getNome());
-       // c.setVisitado(cidade.getCidade().isVisitado());
-       // cidade.setCidade(c);
+//        Cidade c = new Cidade();
+//        c.setNome(cidade.getCidade().getNome());
+//        c.setVisitado(cidade.getCidade().isVisitado());
+//        cidade.setCidade(c);
         adjacenteList.add(cidade);
     }
 

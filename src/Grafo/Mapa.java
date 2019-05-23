@@ -15,7 +15,6 @@ public class Mapa {
     private Cidade Laranjeiras;
     private Cidade Malhador;
     private Cidade Lagarto;
-    private Cidade Estancia;
     private Cidade Moita_Bonita;
     private Cidade Macambira;
     private Cidade Nossa_Senhora_aparecida;
@@ -162,7 +161,6 @@ public class Mapa {
         Pedra_Mole.addCidadeAdjacente(new Adjacente(Simao_Dias));
 
         /*Adj de Pinhao */
-
         Pinhao.addCidadeAdjacente(new Adjacente(Simao_Dias));
         Pinhao.addCidadeAdjacente(new Adjacente(Frei_Paulo));
         Pinhao.addCidadeAdjacente(new Adjacente(Lagarto));
@@ -172,7 +170,6 @@ public class Mapa {
         Pinhao.addCidadeAdjacente(new Adjacente(Pedra_Mole));
         Pinhao.addCidadeAdjacente(new Adjacente(Ribeiropolis));
         Pinhao.addCidadeAdjacente(new Adjacente(Carira));
-
 
         /*Adj de Riachuelo*/
         Riachuelo.addCidadeAdjacente(new Adjacente(Laranjeiras));
@@ -222,7 +219,6 @@ public class Mapa {
         Areia_Branca.addCidadeAdjacente(new Adjacente(Malhador));
         Areia_Branca.addCidadeAdjacente(new Adjacente(Riachuelo));
         Areia_Branca.addCidadeAdjacente(new Adjacente(Sao_Cristovao));
-
 
         /*Adj de Simao Dias*/
         Simao_Dias.addCidadeAdjacente(new Adjacente(Lagarto));
@@ -311,14 +307,6 @@ public class Mapa {
 
     public void setLagarto(Cidade lagarto) {
         Lagarto = lagarto;
-    }
-
-    public Cidade getEstancia() {
-        return Estancia;
-    }
-
-    public void setEstancia(Cidade estancia) {
-        Estancia = estancia;
     }
 
     public Cidade getMacambira() {

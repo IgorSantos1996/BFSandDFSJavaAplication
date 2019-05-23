@@ -5,8 +5,6 @@ import Grafo.Adjacente;
 import Grafo.Cidade;
 import Grafo.Mapa;
 
-
-
 public class Largura {
     private Fila fronteira;
     private Cidade inicio;
@@ -36,11 +34,17 @@ public class Largura {
         } else {
             System.out.println("Desenfileirou: " + fronteira.desenfileirar().getNome());
             for (Adjacente a : primeiro.getAdjacentes()) {
-                System.out.println("Verificando se já visitado: " + a.getCidade().getNome());
-                if (!a.getCidade().isVisitado()) {
+                if (a.getCidade().isVisitado() == false) {
+                    System.out.println("Visitando: " + a.getCidade().getNome());
                     a.getCidade().setVisitado(true);
                     fronteira.enfileirar(a.getCidade());
+                    System.out.println("Enfileira: " + a.getCidade().getNome());
+                    System.out.println();
                 }
+                // achou
+//                if(a.getCidade().getNome().equals(objetivo.getNome())){
+//                    System.out.println("ACHOU !");
+//                }
             }
             if (fronteira.getNumeroElementos() > 0) {
                 buscar01();
