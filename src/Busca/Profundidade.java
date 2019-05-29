@@ -32,7 +32,7 @@ public class Profundidade {
             for (Adjacente a : topo.getAdjacentes()) {
                 if (!achou) {
                     System.out.println("Verificando se já visitado: " + a.getCidade().getNome());
-                    if (!a.getCidade().isVisitado()) {
+                    if (a.getCidade().isVisitado() == false) {
                         a.getCidade().setVisitado(true);
                         fronteira.empilhar(a.getCidade());
                         buscar();
@@ -42,11 +42,5 @@ public class Profundidade {
         }
         System.out.println("Desempilhou: " + fronteira.desempilhar().getNome());
     }
-
-    //public static void main(String args[]) {
-        /*Mapa mapa = new Mapa();
-        Profundidade p = new Profundidade(mapa.getItabaiana(), mapa.getAracaju());
-        p.buscar(); */
-    //}
 
 }

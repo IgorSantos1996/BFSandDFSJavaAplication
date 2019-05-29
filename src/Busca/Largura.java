@@ -16,11 +16,11 @@ public class Largura {
     private Mapa mapa;
     int cont = 0;
 
-    public Largura(Cidade inicio, Cidade objetivo, Mapa mapa) {
+    public Largura(Cidade inicio, Cidade objetivo) {
         this.inicio = inicio;
         this.inicio.setVisitado(true);
         this.objetivo = objetivo;
-        this.mapa = mapa;
+        //this.mapa = mapa;
 
         fronteira = new Fila(20);
         fronteira.enfileirar(inicio);
@@ -29,66 +29,51 @@ public class Largura {
     }
 
     public void buscar01() {
-        while(!fronteira.filaVazia()){
-            Cidade primeiro = fronteira.desenfileirar();
-            setTrue(primeiro.getNome());
-            System.out.println("Primeira: "+primeiro.getNome());
-            for (Adjacente a: PesquisaCidadeNome(primeiro.getNome()).getAdjacentes()){
-                //System.out.println("Adjacente: "+a.getCidade().getNome());
-                if (!VerificaTrue(a.getCidade().getNome())) {
-                    if (!a.getCidade().getNome().equals(ultima.getNome())) {
-                        fronteira.enfileirar(a.getCidade());
-                    }
+        do {
+            Cidade primeiro = fronteira.getPrimeiro();
+            System.out.println("Primeiro: " + primeiro.getNome());
+//            for(int i = 0;
+//                i < primeiro.getAdjacentes().size() && (!primeiro.isVisitado() == true);
+//                i++){
+//                Adjacente atual = primeiro.getAdjacentes().get(i);
+//                if(atual.getCidade().getNome().equals(objetivo.getNome())){
+//                    System.out.println(objetivo.getNome());
+//                    return;
+//                } else {
+//                    fronteira.enfileirar(atual.getCidade());
+//                }
+//            }
+
+            for (Adjacente a : primeiro.getAdjacentes()) {
+                if (a.getCidade().getNome().equals(objetivo.getNome())) {
+                    System.out.println(objetivo.getNome());
+                    return;
+                } else {
+                    fronteira.enfileirar(a.getCidade());
                 }
-                a.getCidade().setVisitado(true);
-                //setTrue(a.getCidade().getNome());
-
             }
+            primeiro.setVisitado(true);
+            fronteira.desenfileirar();
+        } while(!fronteira.getPrimeiro().equals(objetivo.getNome()));
 
-//            for (Cidade cid : mapa.getCidades())
-//            {
-//                System.out.println("Cidade: "+cid.getNome());
-//                System.out.println("Visitada: "+cid.isVisitado());
-//            }
-            ultima = primeiro;
-            if (pesquisaVisitados()){
-                break;
-            }
-//            cont++;
-//            if(cont == 10){
-//                break;
-//            }
-//            System.out.println("quant: "+fronteira.getNumeroElementos());
-////            if (primeiro.getNome().equals(objetivo.getNome())){
-////                break;
-//            }
 
-        }
-//
-//        System.out.println("Primeiro: " + primeiro.getNome());
-//        if (primeiro.getNome().equals(objetivo.getNome())) {
+//        if (primeiro.equals(objetivo)) {
 //            achou = true;
 //
 //        } else {
 //            System.out.println("Desenfileirou: " + fronteira.desenfileirar().getNome());
-//            for (Adjacente a : PesquisaCidadeNome(primeiro.getNome()).getAdjacentes()) {
+//            for (Adjacente a : primeiro.getAdjacentes()) {
 //                System.out.println("Verificando se já visitado: " + a.getCidade().getNome());
-//                //System.out.println("Status: "+a.getCidade().isVisitado());
 //                if (!a.getCidade().isVisitado()) {
 //                    a.getCidade().setVisitado(true);
 //                    fronteira.enfileirar(a.getCidade());
-//
 //                }
 //            }
 //            if (fronteira.getNumeroElementos() > 0) {
 //                buscar01();
 //            }
-//
 //        }
-
-
     }
-
     private boolean pesquisaVisitados()
     {
         for(Cidade c : mapa.getCidades()){
@@ -129,9 +114,5 @@ public class Largura {
         }
         return null;
     }
-    //public static void main(String[] args) {
-        /*Mapa mapa = new Mapa();
-        Largura l = new Largura(mapa.getItabaiana(), mapa.getAracaju());
-        l.buscar01(); */
-    //}
+
 }

@@ -26,10 +26,12 @@ public class Fila {
             }
             cidades[++fim] = cidade;
             numeroElementos++;
+            System.out.println(cidade.getNome());
         } else {
             System.out.println("A fila ja está cheia");
 
         }
+
     }
 
     public Cidade desenfileirar() {
@@ -64,7 +66,7 @@ public class Fila {
     }
 
     public static void main(String args[]) {
-        Fila fila = new Fila(20);
+        Fila fila = new Fila(21);
         Mapa mapa = new Mapa();
     }
 }

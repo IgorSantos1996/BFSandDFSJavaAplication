@@ -46,7 +46,7 @@ public class Pilha {
     }
 
     public static void main(String[] args) {
-        Pilha pilha = new Pilha(20);
+        Pilha pilha = new Pilha(21);
         Mapa mapa = new Mapa();
 
     }

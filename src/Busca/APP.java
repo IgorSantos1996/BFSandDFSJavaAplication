@@ -134,11 +134,12 @@ public class APP implements ActionListener {
 
         if (e.getSource().equals(btlargura)) {
             Largura l = new Largura(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
-                    PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()) , mapa);
+                    PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
             l.buscar01();
 
         } else if (e.getSource().equals(btprofundidade)) {
-            Profundidade p = new Profundidade(mapa.getFrei_Paulo(), mapa.getSimao_Dias());
+            Profundidade p = new Profundidade(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
+                    PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()) );
             p.buscar();
         } else if (e.getSource().equals(cb_cidades)) {
             System.out.println(cb_cidades.getSelectedItem().toString());
