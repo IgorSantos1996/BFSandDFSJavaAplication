@@ -79,12 +79,10 @@ public class APP implements ActionListener {
         label02 = new JLabel("Para");
 
         inicializarComponentes();
-
-
     }
 
     private void inicializarComponentes() {
-        ImageIcon background = new ImageIcon("C:\\Users\\igorb\\Desktop\\BuscasIA-master\\MAPA _SERGIPE.jpg");
+        ImageIcon background = new ImageIcon("C:\\Users\\igorb\\Desktop\\REPO\\BuscasIA\\MAPA _SERGIPE.jpg");
         Image img = background.getImage();
         Image temp = img.getScaledInstance(900, 1100, Image.SCALE_SMOOTH);
         background = new ImageIcon(temp);
