@@ -18,7 +18,7 @@ public class APP implements ActionListener {
     private JLabel label03;
     private JMenuBar mnBarra;
     private JMenu mnArquivo, mnConsultar;
-    private JMenuItem miSair, miBotao,miAdjacencias,miCodigoFonte;
+    private JMenuItem miSair, miBotao, miAdjacencias, miCodigoFonte;
     private JButton btlargura;
     private JButton btprofundidade;
     private JFrame frame;
@@ -50,12 +50,17 @@ public class APP implements ActionListener {
     }
 
     private void inicializarComponentes() {
-        ImageIcon img = new ImageIcon("D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA\\BuscasSemInformacao\\src\\Busca\\mapa.jpg");
-
+        ImageIcon background = new ImageIcon("D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA\\BuscasSemInformacao\\MAPA_SERGIPE.png");
+        Image img = background.getImage();
+        Image temp = img.getScaledInstance(900, 1100, Image.SCALE_SMOOTH);
+        background = new ImageIcon(temp);
+        JLabel back = new JLabel(background);
+        back.setLayout(null);
+        back.setBounds(0, 0, 500, 600);
         //pega a altura e largura
-        int altura = img.getIconHeight();
-        int largura = img.getIconWidth();
-        label03 = new JLabel(img);
+        //int altura = img.getIconHeight();
+        //int largura = img.getIconWidth();
+        label03 = new JLabel(background);
         miAdjacencias.addActionListener(this);
         miCodigoFonte.addActionListener(this);
         miSair.addActionListener(this);
@@ -65,8 +70,8 @@ public class APP implements ActionListener {
         cb_cidades.addActionListener(this);
         cb_cidades02.addActionListener(this);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        frame.getContentPane().setLayout(null);
-
+        //frame.getContentPane().setLayout(null);
+        frame.getContentPane().setBackground(Color.WHITE);
 
         mnArquivo.add(miBotao);
         mnConsultar.add(miSair);
@@ -77,7 +82,7 @@ public class APP implements ActionListener {
         mnBarra.add(mnConsultar);
 
         ArrayList<String> Nome_Cidades = new ArrayList<>();
-        mapa.getCidades().forEach(item->Nome_Cidades.add(item.getNome()));
+        mapa.getCidades().forEach(item -> Nome_Cidades.add(item.getNome()));
         cb_cidades.setModel(new javax.swing.DefaultComboBoxModel(Nome_Cidades.toArray()));
         cb_cidades.setName("cb_cidades");
         Nome_Cidades.remove(0);
@@ -95,12 +100,12 @@ public class APP implements ActionListener {
         btlargura.setBounds(650, 350, 150, 30);
         btprofundidade.setBounds(650, 300, 150, 30);
         cb_cidades.setBounds(650, 70, 150, 30);
-        cb_cidades02.setBounds(650, 100, 150,30);
+        cb_cidades02.setBounds(650, 100, 150, 30);
         label.setBounds(620, 70, 200, 30);
-        label02.setBounds(620,100,200,30);
-        label03.setBounds(20,30, altura, largura);
+        label02.setBounds(620, 100, 200, 30);
+        label03.setBounds(0, -200, 1100, 1100);
 
-        frame.setPreferredSize(new java.awt.Dimension(900, 700));
+        frame.setPreferredSize(new java.awt.Dimension(1200, 900));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
@@ -108,7 +113,7 @@ public class APP implements ActionListener {
 
     }
     //private ImageIcon createImage(String path){
-      //  return new ImageIcon(java.awt.Toolkit.getDefaultToolkit().getClass().getResource(path));
+    //  return new ImageIcon(java.awt.Toolkit.getDefaultToolkit().getClass().getResource(path));
     //}
 
 
@@ -140,13 +145,13 @@ public class APP implements ActionListener {
 
         } else if (e.getSource().equals(btprofundidade)) {
             Profundidade p = new Profundidade(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
-                    PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()) );
+                    PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
             p.buscar();
         } else if (e.getSource().equals(cb_cidades)) {
             System.out.println(cb_cidades.getSelectedItem().toString());
             ArrayList<String> Nome_Cidades = new ArrayList<>();
-            for(Cidade cidade: mapa.getCidades()) {
-                if(!cidade.getNome().equals(cb_cidades.getSelectedItem().toString())){
+            for (Cidade cidade : mapa.getCidades()) {
+                if (!cidade.getNome().equals(cb_cidades.getSelectedItem().toString())) {
                     Nome_Cidades.add(cidade.getNome());
                 }
             }
@@ -158,20 +163,19 @@ public class APP implements ActionListener {
             System.out.println(cb_cidades02.getSelectedItem().toString());
         } else if (e.getSource().equals(miSair)) {
             System.exit(0);
-        } else if (e.getSource().equals(miAdjacencias)){
-            String []opcao = {"fechar"};
-            JOptionPane.showOptionDialog(null,"Funcionalidade a ser implementada", "Consultar Matriz Adj", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null,opcao, opcao[0]);
+        } else if (e.getSource().equals(miAdjacencias)) {
+            String[] opcao = {"fechar"};
+            JOptionPane.showOptionDialog(null, "Funcionalidade a ser implementada", "Consultar Matriz Adj", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opcao, opcao[0]);
             Toolkit.getDefaultToolkit().beep();
-        }else if(e.getSource().equals(miCodigoFonte)){
+        } else if (e.getSource().equals(miCodigoFonte)) {
 
         }
 
     }
 
-    private Cidade PesquisaCidadeNome(String nome)
-    {
-        for(Cidade c : mapa.getCidades()){
-            if(c.getNome().equals(nome)){
+    private Cidade PesquisaCidadeNome(String nome) {
+        for (Cidade c : mapa.getCidades()) {
+            if (c.getNome().equals(nome)) {
                 return c;
             }
         }
