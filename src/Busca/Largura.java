@@ -49,7 +49,8 @@ public class Largura {
                     System.out.println(objetivo.getNome());
                     return;
                 } else {
-                    fronteira.enfileirar(a.getCidade());
+                    if(a.getCidade().isVisitado() == false)
+                        fronteira.enfileirar(a.getCidade());
                 }
             }
             primeiro.setVisitado(true);
