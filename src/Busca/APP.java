@@ -51,6 +51,7 @@ public class APP implements ActionListener {
 
     private void inicializarComponentes() {
         ImageIcon img = new ImageIcon("D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA\\BuscasSemInformacao\\src\\Busca\\mapa.jpg");
+
         //pega a altura e largura
         int altura = img.getIconHeight();
         int largura = img.getIconWidth();
