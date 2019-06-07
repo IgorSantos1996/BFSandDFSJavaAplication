@@ -10,7 +10,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-
 public class APP implements ActionListener {
     //private JPanel painel = null;
     private JLabel label;
@@ -27,24 +26,22 @@ public class APP implements ActionListener {
     private Image iconeTitulo;
     private Mapa mapa;
     
-    
-    
     // Componentes para colocar o ponto vermelho na tela
     Thread tponto;
-    private JLabel pontoVermelho;
+    private JLabel pontoAzul;
     
-    public void ativarPontoVermelho() {
+    public void ativarPontoAzul() {
         tponto = new Thread() {
             public void run() {
                 int x = 0;
                 while (true) {
                     x++;
                     if (x % 2 == 0) {
-                        frame.add(pontoVermelho).setBounds(490, 180, 25, 20);
-                        pontoVermelho.setVisible(true);
+                        frame.add(pontoAzul).setBounds(497, 187, 15, 15);
+                        pontoAzul.setVisible(true);
 
                     } else {
-                        pontoVermelho.setVisible(false);
+                        pontoAzul.setVisible(false);
                     }
 
                     try {
@@ -58,8 +55,6 @@ public class APP implements ActionListener {
         };
         tponto.start();
     }
-	
-    
 
     public APP() {
         mapa = new Mapa();
@@ -82,7 +77,7 @@ public class APP implements ActionListener {
     }
 
     private void inicializarComponentes() {
-        ImageIcon background = new ImageIcon("C:\\Users\\igorb\\Desktop\\REPO\\BuscasIA\\MAPA _SERGIPE.jpg");
+        ImageIcon background = new ImageIcon("D:\\\\JOAN VITOR\\\\UFS\\\\8º PERIODO\\\\INTELIGENCIA ARTIFICIAL\\\\1º UNIDADE\\\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\\\NetBeans\\\\BuscasSemInformacao\\\\src\\\\Busca\\\\MAPA_SERGIPE.jpg");
         Image img = background.getImage();
         Image temp = img.getScaledInstance(900, 1100, Image.SCALE_SMOOTH);
         background = new ImageIcon(temp);
@@ -144,12 +139,10 @@ public class APP implements ActionListener {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         
-        
         // colocando ponto vermelho na tela
-        pontoVermelho = new JLabel(new ImageIcon("C:\\Users\\igorb\\Desktop\\BuscasIA-master\\ponto.jpg"));
-        ativarPontoVermelho();
+        pontoAzul = new JLabel(new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\pontoAzul.png"));
+        ativarPontoAzul();
         //frame.setIconImage(createImage("Busca/dsike.jpg").getImage());
-
     }
     //private ImageIcon createImage(String path){
     //  return new ImageIcon(java.awt.Toolkit.getDefaultToolkit().getClass().getResource(path));
@@ -157,7 +150,6 @@ public class APP implements ActionListener {
 
 
     public static void main(String[] args) {
-
         try {
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -171,12 +163,10 @@ public class APP implements ActionListener {
 
         APP principal = new APP();
         principal.frame.setVisible(true);
-
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-
         if (e.getSource().equals(btlargura)) {
             Largura l = new Largura(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
                     PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
@@ -196,8 +186,6 @@ public class APP implements ActionListener {
             }
             cb_cidades02.setModel(new javax.swing.DefaultComboBoxModel(Nome_Cidades.toArray()));
             cb_cidades02.setName("cb_cidades02");
-
-
         } else if (e.getSource().equals(cb_cidades02)) {
             System.out.println(cb_cidades02.getSelectedItem().toString());
         } else if (e.getSource().equals(miSair)) {
@@ -209,7 +197,6 @@ public class APP implements ActionListener {
         } else if (e.getSource().equals(miCodigoFonte)) {
 
         }
-
     }
 
     private Cidade PesquisaCidadeNome(String nome) {
