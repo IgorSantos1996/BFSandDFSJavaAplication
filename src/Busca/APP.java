@@ -26,6 +26,40 @@ public class APP implements ActionListener {
     private static JComboBox cb_cidades02;
     private Image iconeTitulo;
     private Mapa mapa;
+    
+    
+    
+    // Componentes para colocar o ponto vermelho na tela
+    Thread tponto;
+    private JLabel pontoVermelho;
+    
+    public void ativarPontoVermelho() {
+        tponto = new Thread() {
+            public void run() {
+                int x = 0;
+                while (true) {
+                    x++;
+                    if (x % 2 == 0) {
+                        frame.add(pontoVermelho).setBounds(490, 180, 25, 20);
+                        pontoVermelho.setVisible(true);
+
+                    } else {
+                        pontoVermelho.setVisible(false);
+                    }
+
+                    try {
+                        Thread.sleep(800);
+                    } catch (InterruptedException ex) {
+                    	System.out.println("Erro: "+ex);
+                    }
+
+                }
+            }
+        };
+        tponto.start();
+    }
+	
+    
 
     public APP() {
         mapa = new Mapa();
@@ -50,7 +84,7 @@ public class APP implements ActionListener {
     }
 
     private void inicializarComponentes() {
-        ImageIcon background = new ImageIcon("D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA\\BuscasSemInformacao\\MAPA_SERGIPE.png");
+        ImageIcon background = new ImageIcon("C:\\Users\\igorb\\Desktop\\BuscasIA-master\\MAPA _SERGIPE.jpg");
         Image img = background.getImage();
         Image temp = img.getScaledInstance(900, 1100, Image.SCALE_SMOOTH);
         background = new ImageIcon(temp);
@@ -61,6 +95,8 @@ public class APP implements ActionListener {
         //int altura = img.getIconHeight();
         //int largura = img.getIconWidth();
         label03 = new JLabel(background);
+        // setando o mapa de forma que o ponto vermelho possa sobrescrever o mapa
+        frame.setContentPane(label03);
         miAdjacencias.addActionListener(this);
         miCodigoFonte.addActionListener(this);
         miSair.addActionListener(this);
@@ -71,7 +107,7 @@ public class APP implements ActionListener {
         cb_cidades02.addActionListener(this);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(Color.WHITE);
+        frame.getContentPane().setBackground(Color.BLACK);
 
         mnArquivo.add(miBotao);
         mnConsultar.add(miSair);
@@ -95,7 +131,7 @@ public class APP implements ActionListener {
         frame.add(label);
         frame.add(cb_cidades02);
         frame.add(label02);
-        frame.add(label03);
+       // frame.add(label03);
 
         btlargura.setBounds(650, 350, 150, 30);
         btprofundidade.setBounds(650, 300, 150, 30);
@@ -109,6 +145,11 @@ public class APP implements ActionListener {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
+        
+        
+        // colocando ponto vermelho na tela
+        pontoVermelho = new JLabel(new ImageIcon("C:\\Users\\igorb\\Desktop\\BuscasIA-master\\ponto.jpg"));
+        ativarPontoVermelho();
         //frame.setIconImage(createImage("Busca/dsike.jpg").getImage());
 
     }
