@@ -6,7 +6,7 @@ import javax.sql.rowset.CachedRowSet;
 import java.util.ArrayList;
 
 public class Mapa {
-    // Caso crescer o numero de Cidades alterar no APP, no combobox, atual = 22
+    // Caso crescer o numero de Cidades alterar no APP, no combobox, atual = 20
     private Cidade Itabaiana;
     private Cidade Aracaju;
     private Cidade Areia_Branca;

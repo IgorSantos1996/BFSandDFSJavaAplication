@@ -8,6 +8,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 public class APP implements ActionListener {
@@ -57,6 +58,7 @@ public class APP implements ActionListener {
     }
 
     public APP() {
+
         mapa = new Mapa();
         frame = new JFrame("Bike Show");
         mnBarra = new JMenuBar();
@@ -77,7 +79,7 @@ public class APP implements ActionListener {
     }
 
     private void inicializarComponentes() {
-        ImageIcon background = new ImageIcon("D:\\\\JOAN VITOR\\\\UFS\\\\8º PERIODO\\\\INTELIGENCIA ARTIFICIAL\\\\1º UNIDADE\\\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\\\NetBeans\\\\BuscasSemInformacao\\\\src\\\\Busca\\\\MAPA_SERGIPE.jpg");
+        ImageIcon background = new ImageIcon("D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA\\BuscasSemInformacao\\MAPA_SERGIPE.png");
         Image img = background.getImage();
         Image temp = img.getScaledInstance(900, 1100, Image.SCALE_SMOOTH);
         background = new ImageIcon(temp);
@@ -149,6 +151,7 @@ public class APP implements ActionListener {
     //}
 
 
+
     public static void main(String[] args) {
         try {
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
@@ -162,6 +165,7 @@ public class APP implements ActionListener {
         }
 
         APP principal = new APP();
+
         principal.frame.setVisible(true);
     }
 
