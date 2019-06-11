@@ -1,4 +1,4 @@
-package Busca;
+﻿package Busca;
 
 import Grafo.Cidade;
 import Grafo.Mapa;
@@ -28,21 +28,31 @@ public class APP implements ActionListener {
     private Mapa mapa;
     
     // Componentes para colocar o ponto vermelho na tela
+
     Thread tponto;
     private JLabel pontoAzul;
 
     public void ativarPontoAzul() {
+
+  Thread tponto;
+    private ArrayList<JLabel> pontoVermelho;
+    
+    public void ativarPontoVermelho(ArrayList<Cidade> rota) {
+
         tponto = new Thread() {
             public void run() {
                 int x = 0;
                 while (true) {
                     x++;
                     if (x % 2 == 0) {
-                        frame.add(pontoAzul).setBounds(497, 187, 15, 15);
-                        pontoAzul.setVisible(true);
+                    	for (int i = 0; i < rota.size(); i++) {
+                    		frame.add(pontoVermelho.get(i)).setBounds(rota.get(i).getX(),rota.get(i).getY(), 20, 20);
+                    		pontoVermelho.get(i).setVisible(true);
+                    	}
 
                     } else {
-                        pontoAzul.setVisible(false);
+                    	for (int i = 0; i < rota.size(); i++)
+                    		pontoVermelho.get(i).setVisible(false);
                     }
 
                     try {
@@ -79,7 +89,7 @@ public class APP implements ActionListener {
     }
 
     private void inicializarComponentes() {
-        ImageIcon background = new ImageIcon("D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA\\BuscasSemInformacao\\MAPA_SERGIPE.png");
+        ImageIcon background = new ImageIcon("C:\\Users\\igorb\\Desktop\\6° periodo\\INTELGENCIA ARTIFICIAL\\BuscasIA\\MAPA_SERGIPE.png");
         Image img = background.getImage();
         Image temp = img.getScaledInstance(900, 1100, Image.SCALE_SMOOTH);
         background = new ImageIcon(temp);
@@ -141,9 +151,31 @@ public class APP implements ActionListener {
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
         
+        /** ---------------------------------------------------------------------- 
+         * Os códigos dessa região servem ara colocar os pontos vermelhos piscando na tela sobre as cidades
+         * Aqui precisamos de uma thread, um arrayList de labels e outro arrayList com a lista das cidades 
+         * selecionadas **/
+        
+        /*Adicionado a quantidade de pontos correspondes a quantodade de ciades (ficticio ate agora)*/
+        pontoVermelho = new ArrayList<>();
+        for (int i = 0; i < 5;i++)
+        	pontoVermelho.add(new JLabel(new ImageIcon("C:\\Users\\igorb\\Desktop\\6° periodo\\INTELGENCIA ARTIFICIAL\\BuscasIA\\pontoAzul.png")));
+        
+        
+        ArrayList<Cidade> c = new ArrayList<>();
+        
+        c.add(mapa.getNossa_Senhora_da_Gloria());
+        c.add(mapa.getCarira());
+        c.add(mapa.getNossa_Senhora_aparecida());
+        c.add(mapa.getFrei_Paulo());
+        c.add(mapa.getPedra_Mole());
+        
         // colocando ponto vermelho na tela
-        pontoAzul = new JLabel(new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\pontoAzul.png"));
-        ativarPontoAzul();
+        ativarPontoVermelho(c);
+        
+        /** Finalizando região de efeitos especiais de layout
+         *  ----------------------------------------------------------------------- */
+        
         //frame.setIconImage(createImage("Busca/dsike.jpg").getImage());
     }
     //private ImageIcon createImage(String path){

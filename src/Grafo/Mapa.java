@@ -1,4 +1,4 @@
-package Grafo;
+﻿package Grafo;
 
 //import java.awt.geom.Area;
 
@@ -33,29 +33,29 @@ public class Mapa {
     private ArrayList<Cidade> Cidades;
 
     public Mapa() {
-        Cidades = new ArrayList<>();
-        Itabaiana = new Cidade("Itabaiana");
-        Frei_Paulo = new Cidade("Frei Paulo");
-        Moita_Bonita = new Cidade("Moita Bonita");
-        Lagarto = new Cidade("Lagarto");
-        Laranjeiras = new Cidade("Laranjeiras");
-        Macambira = new Cidade("Macambira");
-        Malhador = new Cidade("Malhador");
-        Nossa_Senhora_aparecida = new Cidade("Nossa Senhora de Aparecida");
-        Nossa_Senhora_da_Gloria = new Cidade("Gloria");
-        Nossa_Senhora_das_Dores = new Cidade("Nossa Senhora das Dores");
-        Nossa_Senhora_do_Socorro = new Cidade("Nossa Senhora do Socorro");
-        Pedra_Mole = new Cidade("Pedra Mole");
-        Pinhao = new Cidade("Pinhao");
-        Riachuelo = new Cidade("Riachuelo");
-        Ribeiropolis = new Cidade("Ribeiropolis");
-        Sao_Cristovao = new Cidade("São Cristovão");
-        Sao_Domingos = new Cidade("São Domingos");
-        Carira = new Cidade("Carira");
-        Areia_Branca = new Cidade("Areia Branca");
-        Aracaju = new Cidade("Aracaju");
-        Simao_Dias = new Cidade("Simao Dias");
-
+    	 Cidades = new ArrayList<>();
+         Itabaiana = new Cidade("Itabaiana",10,20);
+         Frei_Paulo = new Cidade("Frei Paulo",440,350);
+         Moita_Bonita = new Cidade("Moita Bonita",10,20);
+         Lagarto = new Cidade("Lagarto",10,20);
+         Laranjeiras = new Cidade("Laranjeiras",10,20);
+         Macambira = new Cidade("Macambira",10,20);
+         Malhador = new Cidade("Malhador",10,20);
+         Nossa_Senhora_aparecida = new Cidade("Nossa Senhora de Aparecida",500,280);
+         Nossa_Senhora_da_Gloria = new Cidade("Gloria",495,185);
+         Nossa_Senhora_das_Dores = new Cidade("Nossa Senhora das Dores",10,20);
+         Nossa_Senhora_do_Socorro = new Cidade("Nossa Senhora do Socorro",10,20);
+         Pedra_Mole = new Cidade("Pedra Mole",410,400);
+         Pinhao = new Cidade("Pinhao",10,20);
+         Riachuelo = new Cidade("Riachuelo",10,20);
+         Ribeiropolis = new Cidade("Ribeiropolis",10,20);
+         Sao_Cristovao = new Cidade("São Cristovão",10,20);
+         Sao_Domingos = new Cidade("São Domingos",10,20);
+         Carira = new Cidade("Carira",405,250);
+         Areia_Branca = new Cidade("Areia Branca",10,20);
+         Aracaju = new Cidade("Aracaju",10,20);
+         Simao_Dias = new Cidade("Simao Dias",10,20);
+         
         Cidades.add(Itabaiana);
         Cidades.add(Frei_Paulo);
         Cidades.add(Moita_Bonita);
