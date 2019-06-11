@@ -1,4 +1,4 @@
-﻿package Grafo;
+package Grafo;
 
 //import java.awt.geom.Area;
 

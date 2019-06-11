@@ -1,4 +1,4 @@
-﻿package Busca;
+package Busca;
 
 import Grafo.Cidade;
 import Grafo.Mapa;
@@ -82,7 +82,7 @@ public class APP implements ActionListener {
     }
 
     private void inicializarComponentes() {
-        ImageIcon background = new ImageIcon("C:\\Users\\igorb\\Desktop\\6° periodo\\INTELGENCIA ARTIFICIAL\\BuscasIA\\MAPA_SERGIPE.png");
+        ImageIcon background = new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\MAPA_SERGIPE.jpg");
         Image img = background.getImage();
         Image temp = img.getScaledInstance(900, 1100, Image.SCALE_SMOOTH);
         background = new ImageIcon(temp);
@@ -152,7 +152,7 @@ public class APP implements ActionListener {
         /*Adicionado a quantidade de pontos correspondes a quantodade de ciades (ficticio ate agora)*/
         pontoVermelho = new ArrayList<>();
         for (int i = 0; i < 5;i++)
-        	pontoVermelho.add(new JLabel(new ImageIcon("C:\\Users\\igorb\\Desktop\\6° periodo\\INTELGENCIA ARTIFICIAL\\BuscasIA\\pontoAzul.png")));
+        	pontoVermelho.add(new JLabel(new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\pontoAzul.png")));
         
         
         ArrayList<Cidade> c = new ArrayList<>();
