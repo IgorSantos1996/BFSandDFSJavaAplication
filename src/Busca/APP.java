@@ -30,7 +30,7 @@ public class APP implements ActionListener {
     // Componentes para colocar o ponto vermelho na tela
     Thread tponto;
     private JLabel pontoAzul;
-    
+
     public void ativarPontoAzul() {
         tponto = new Thread() {
             public void run() {
