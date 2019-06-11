@@ -28,10 +28,17 @@ public class APP implements ActionListener {
     private Mapa mapa;
     
     // Componentes para colocar o ponto vermelho na tela
+
+    Thread tponto;
+    private JLabel pontoAzul;
+
+    public void ativarPontoAzul() {
+
   Thread tponto;
     private ArrayList<JLabel> pontoVermelho;
     
     public void ativarPontoVermelho(ArrayList<Cidade> rota) {
+
         tponto = new Thread() {
             public void run() {
                 int x = 0;
