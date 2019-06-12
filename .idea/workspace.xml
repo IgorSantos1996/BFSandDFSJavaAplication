@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="76a191ab-0a41-4084-a20f-a2ed9750c4e6" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Busca/APP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Busca/APP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TelaBoasVindas/BoasVindas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TelaBoasVindas/BoasVindas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TelaCreditos/Creditos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TelaCreditos/Creditos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TelaMatriz/telaMatriz.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TelaMatriz/telaMatriz.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,8 +17,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Busca/APP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="235" column="30" lean-forward="true" selection-start-line="235" selection-start-column="30" selection-end-line="235" selection-end-column="30" />
+            <state relative-caret-position="60">
+              <caret line="182" lean-forward="true" selection-start-line="182" selection-end-line="182" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -29,10 +27,50 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/TelaMatriz/telaMatriz.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="220">
+              <caret line="89" column="31" lean-forward="true" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Grafo/Mapa.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#16203#16204#0" expanded="true" />
+                <element signature="e#16240#16241#0" expanded="true" />
+                <element signature="e#16300#16301#0" expanded="true" />
+                <element signature="e#16347#16348#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Grafo/Cidade.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="304">
+              <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/TelaBoasVindas/BoasVindas.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="295">
-              <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+            <state relative-caret-position="294">
+              <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -78,6 +116,7 @@
       <find>&quot;&quot;</find>
       <find>Bike</find>
       <find>URL</find>
+      <find>combo</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -91,12 +130,12 @@
         <option value="$PROJECT_DIR$/src/ED/Pilha.java" />
         <option value="$PROJECT_DIR$/src/Busca/Profundidade.java" />
         <option value="$PROJECT_DIR$/src/ED/Fila.java" />
-        <option value="$PROJECT_DIR$/src/Grafo/Mapa.java" />
         <option value="$PROJECT_DIR$/src/Busca/Largura.java" />
-        <option value="$PROJECT_DIR$/src/TelaMatriz/telaMatriz.java" />
         <option value="$PROJECT_DIR$/src/TelaCreditos/Creditos.java" />
-        <option value="$PROJECT_DIR$/src/Busca/APP.java" />
         <option value="$PROJECT_DIR$/src/TelaBoasVindas/BoasVindas.java" />
+        <option value="$PROJECT_DIR$/src/Grafo/Mapa.java" />
+        <option value="$PROJECT_DIR$/src/Busca/APP.java" />
+        <option value="$PROJECT_DIR$/src/TelaMatriz/telaMatriz.java" />
       </list>
     </option>
   </component>
@@ -126,25 +165,7 @@
               <item name="BuscasIA" type="b2602c69:ProjectViewProjectNode" />
               <item name="BuscasIA" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Busca" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BuscasIA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BuscasIA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Grafo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BuscasIA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BuscasIA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="TelaBoasVindas" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="BuscasIA" type="b2602c69:ProjectViewProjectNode" />
-              <item name="BuscasIA" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="TelaCreditos" type="462c0819:PsiDirectoryNode" />
+              <item name="ED" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="BuscasIA" type="b2602c69:ProjectViewProjectNode" />
@@ -174,6 +195,11 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\6 periodo\Inteligencia Artificial\TrabalhoIA02\BuscasIA\src\Imagens" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -267,7 +293,8 @@
       <workItem from="1560283887391" duration="11172000" />
       <workItem from="1560342514450" duration="8206000" />
       <workItem from="1560357648830" duration="650000" />
-      <workItem from="1560361623229" duration="1034000" />
+      <workItem from="1560361623229" duration="1892000" />
+      <workItem from="1560364664254" duration="7906000" />
     </task>
     <task id="LOCAL-00001" summary="Busca em profundidade funcionando.">
       <created>1557875788121</created>
@@ -280,20 +307,19 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="120468000" />
+    <option name="totallyTimeSpent" value="129232000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1429652" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18456884" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.11456628" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.11456628" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934534" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -406,40 +432,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Grafo/Cidade.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="154">
-          <caret line="9" column="21" selection-start-line="9" selection-start-column="21" selection-end-line="9" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Grafo/Mapa.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-4601">
-          <caret line="73" column="35" lean-forward="true" selection-start-line="73" selection-start-column="35" selection-end-line="73" selection-end-column="35" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Salvar/SalvarPDF.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="44">
           <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/TelaMatriz/telaMatriz.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-242">
-          <caret line="10" column="27" selection-start-line="10" selection-start-column="27" selection-end-line="10" selection-end-column="27" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -449,16 +445,6 @@
           <caret line="216" selection-start-line="216" selection-end-line="216" />
           <folding>
             <element signature="e#6743#6744#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Busca/APP.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="235" column="30" lean-forward="true" selection-start-line="235" selection-start-column="30" selection-end-line="235" selection-end-column="30" />
-          <folding>
-            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -475,8 +461,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TelaBoasVindas/BoasVindas.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="295">
-          <caret line="61" column="18" selection-start-line="61" selection-start-column="18" selection-end-line="61" selection-end-column="18" />
+        <state relative-caret-position="294">
+          <caret line="40" column="29" selection-start-line="40" selection-start-column="29" selection-end-line="40" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Grafo/Cidade.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="29" column="22" selection-start-line="29" selection-start-column="22" selection-end-line="29" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Grafo/Mapa.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret line="51" column="46" selection-start-line="51" selection-start-column="46" selection-end-line="51" selection-end-column="46" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#16203#16204#0" expanded="true" />
+            <element signature="e#16240#16241#0" expanded="true" />
+            <element signature="e#16300#16301#0" expanded="true" />
+            <element signature="e#16347#16348#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Busca/APP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="182" lean-forward="true" selection-start-line="182" selection-end-line="182" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TelaMatriz/telaMatriz.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="89" column="31" lean-forward="true" selection-start-line="89" selection-start-column="31" selection-end-line="89" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
