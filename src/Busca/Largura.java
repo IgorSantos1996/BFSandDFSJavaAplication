@@ -43,7 +43,7 @@ public class Largura {
                     a.getCidade().setCidadePai(primeiro);
                     array.add(a.getCidade());
                     
-                    array = CaminhoPercorrido(inicio, objetivo, array);
+                    array = CaminhoPercorrido(inicio, objetivo);
                     
 //                    System.out.println("TESTE");
 //                    for(Cidade c : array){
@@ -105,7 +105,7 @@ public class Largura {
         return null;
     }
     
-    private ArrayList<Cidade> CaminhoPercorrido(Cidade inicio, Cidade objetivo, ArrayList<Cidade> array){
+    private ArrayList<Cidade> CaminhoPercorrido(Cidade inicio, Cidade objetivo){
         ArrayList<Cidade> cidades = new ArrayList<>();
         cidades.add(objetivo);
         while( ! objetivo.getCidadePai().getNome().equals(inicio.getNome())){
