@@ -6,6 +6,7 @@ import Grafo.Cidade;
 import Grafo.Mapa;
 
 public class Profundidade {
+
     private Pilha fronteira;
     private Cidade inicio;
     private Cidade objetivo;

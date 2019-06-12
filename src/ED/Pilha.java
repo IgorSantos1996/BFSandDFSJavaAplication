@@ -4,10 +4,10 @@ import Grafo.Cidade;
 import Grafo.Mapa;
 
 public class Pilha {
+
     private int tamanho;
     private Cidade[] cidades;
     private int topo;
-
 
     public Pilha(int tamanho) {
         this.tamanho = tamanho;

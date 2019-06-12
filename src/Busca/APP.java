@@ -12,6 +12,7 @@ import java.awt.geom.Line2D;
 import java.util.ArrayList;
 
 public class APP implements ActionListener {
+
     //private JPanel painel = null;
     private JLabel label;
     private JLabel label02;
@@ -26,39 +27,34 @@ public class APP implements ActionListener {
     private static JComboBox cb_cidades02;
     private Image iconeTitulo;
     private Mapa mapa;
-    
+    private ArrayList<Cidade> cidades;
+
     // Componentes para colocar o ponto vermelho na tela
-
     Thread tponto;
-    private JLabel pontoAzul;
+    private ArrayList<JLabel> pontoAzul;
 
-    public void ativarPontoAzul() {
-
-  Thread tponto;
-    private ArrayList<JLabel> pontoVermelho;
-    
-    public void ativarPontoVermelho(ArrayList<Cidade> rota) {
-
+    public void ativarPonto(ArrayList<Cidade> rota) {
         tponto = new Thread() {
             public void run() {
                 int x = 0;
                 while (true) {
                     x++;
                     if (x % 2 == 0) {
-                    	for (int i = 0; i < rota.size(); i++) {
-                    		frame.add(pontoVermelho.get(i)).setBounds(rota.get(i).getX(),rota.get(i).getY(), 20, 20);
-                    		pontoVermelho.get(i).setVisible(true);
-                    	}
+                        for (int i = 0; i < rota.size(); i++) {
+                            frame.add(pontoAzul.get(i)).setBounds(rota.get(i).getX(), rota.get(i).getY(), 20, 20);
+                            pontoAzul.get(i).setVisible(true);
+                        }
 
                     } else {
-                    	for (int i = 0; i < rota.size(); i++)
-                    		pontoVermelho.get(i).setVisible(false);
+                        for (int i = 0; i < rota.size(); i++) {
+                            pontoAzul.get(i).setVisible(false);
+                        }
                     }
 
                     try {
                         Thread.sleep(800);
                     } catch (InterruptedException ex) {
-                    	System.out.println("Erro: "+ex);
+                        System.out.println("Erro: " + ex);
                     }
 
                 }
@@ -84,6 +80,7 @@ public class APP implements ActionListener {
         cb_cidades02 = new JComboBox();
         label = new JLabel("De");
         label02 = new JLabel("Para");
+        //cidades = new ArrayList<>();
 
         inicializarComponentes();
     }
@@ -136,7 +133,7 @@ public class APP implements ActionListener {
         frame.add(label);
         frame.add(cb_cidades02);
         frame.add(label02);
-       // frame.add(label03);
+        // frame.add(label03);
 
         btlargura.setBounds(650, 350, 150, 30);
         btprofundidade.setBounds(650, 300, 150, 30);
@@ -150,39 +147,56 @@ public class APP implements ActionListener {
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
-        
-        /** ---------------------------------------------------------------------- 
-         * Os códigos dessa região servem ara colocar os pontos vermelhos piscando na tela sobre as cidades
-         * Aqui precisamos de uma thread, um arrayList de labels e outro arrayList com a lista das cidades 
-         * selecionadas **/
-        
+
+        /**
+         * ----------------------------------------------------------------------
+         * Os códigos dessa região servem ara colocar os pontos vermelhos
+         * piscando na tela sobre as cidades Aqui precisamos de uma thread, um
+         * arrayList de labels e outro arrayList com a lista das cidades
+         * selecionadas *
+         */
         /*Adicionado a quantidade de pontos correspondes a quantodade de ciades (ficticio ate agora)*/
-        pontoVermelho = new ArrayList<>();
-        for (int i = 0; i < 5;i++)
-        	pontoVermelho.add(new JLabel(new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\pontoAzul.png")));
-        
-        
+        pontoAzul = new ArrayList<>();
+        for (int i = 0; i < 21; i++) {
+            pontoAzul.add(new JLabel(new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\pontoAzul.png")));
+        }
+
         ArrayList<Cidade> c = new ArrayList<>();
-        
-        c.add(mapa.getNossa_Senhora_da_Gloria());
-        c.add(mapa.getCarira());
-        c.add(mapa.getNossa_Senhora_aparecida());
+
+        c.add(mapa.getItabaiana());
         c.add(mapa.getFrei_Paulo());
+        c.add(mapa.getMoita_Bonita());
+        c.add(mapa.getLagarto());
+        c.add(mapa.getLaranjeiras());
+        c.add(mapa.getMacambira());
+        c.add(mapa.getMalhador());
+        c.add(mapa.getNossa_Senhora_aparecida());
+        c.add(mapa.getNossa_Senhora_da_Gloria());
+        c.add(mapa.getNossa_Senhora_das_Dores());
+        c.add(mapa.getNossa_Senhora_do_Socorro());
         c.add(mapa.getPedra_Mole());
-        
+        c.add(mapa.getPinhao());
+        c.add(mapa.getRiachuelo());
+        c.add(mapa.getRibeiropolis());
+        c.add(mapa.getSao_Cristovao());
+        c.add(mapa.getSao_Domingos());
+        c.add(mapa.getCarira());
+        c.add(mapa.getAreia_Branca());
+        c.add(mapa.getAracaju());
+        c.add(mapa.getSimao_Dias());
+
         // colocando ponto vermelho na tela
-        ativarPontoVermelho(c);
-        
-        /** Finalizando região de efeitos especiais de layout
-         *  ----------------------------------------------------------------------- */
-        
+        //ativarPonto(c);
+
+        /**
+         * Finalizando região de efeitos especiais de layout
+         * -----------------------------------------------------------------------
+         */
         //frame.setIconImage(createImage("Busca/dsike.jpg").getImage());
     }
     //private ImageIcon createImage(String path){
     //  return new ImageIcon(java.awt.Toolkit.getDefaultToolkit().getClass().getResource(path));
     //}
-
-
 
     public static void main(String[] args) {
         try {
@@ -206,8 +220,9 @@ public class APP implements ActionListener {
         if (e.getSource().equals(btlargura)) {
             Largura l = new Largura(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
                     PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
-            l.buscar01();
-
+            cidades = new ArrayList<>();
+            cidades = l.buscar01();
+            ativarPonto(cidades);
         } else if (e.getSource().equals(btprofundidade)) {
             Profundidade p = new Profundidade(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
                     PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));

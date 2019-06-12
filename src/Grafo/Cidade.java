@@ -5,14 +5,15 @@ import java.util.List;
 import java.awt.geom.*;
 
 public class Cidade {
+
     private String nome;
     private boolean visitado;
     private List<Adjacente> adjacenteList;
+    private Cidade CidadePai;
     private int x; // coordenadas do layout
-    private int y; 	
+    private int y;
 
-
-     public Cidade(String nome,int x,int y) {
+    public Cidade(String nome, int x, int y) {
         this.nome = nome;
         this.x = x;
         this.y = y;
@@ -24,7 +25,7 @@ public class Cidade {
     }
 
     public Cidade(String nome2) {
-    	this.nome = nome2;
+        this.nome = nome2;
         visitado = false;
         adjacenteList = new ArrayList<Adjacente>();
     }
@@ -37,26 +38,23 @@ public class Cidade {
         adjacenteList.add(cidade);
     }
 
-    
-    
-    
     public int getX() {
-		return x;
-	}
+        return x;
+    }
 
-	public void setX(int x) {
-		this.x = x;
-	}
+    public void setX(int x) {
+        this.x = x;
+    }
 
-	public int getY() {
-		return y;
-	}
+    public int getY() {
+        return y;
+    }
 
-	public void setY(int y) {
-		this.y = y;
-	}
+    public void setY(int y) {
+        this.y = y;
+    }
 
-	public String getNome() {
+    public String getNome() {
         return nome;
     }
 
@@ -74,5 +72,13 @@ public class Cidade {
 
     public List<Adjacente> getAdjacentes() {
         return adjacenteList;
+    }
+
+    public Cidade getCidadePai() {
+        return CidadePai;
+    }
+
+    public void setCidadePai(Cidade CidadePai) {
+        this.CidadePai = CidadePai;
     }
 }

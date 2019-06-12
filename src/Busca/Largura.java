@@ -4,9 +4,10 @@ import ED.Fila;
 import Grafo.Adjacente;
 import Grafo.Cidade;
 import Grafo.Mapa;
-
+import java.util.ArrayList;
 
 public class Largura {
+
     private Fila fronteira;
     private Cidade inicio;
     private Cidade objetivo;
@@ -27,7 +28,9 @@ public class Largura {
         achou = false;
     }
 
-    public void buscar01() {
+    public ArrayList<Cidade> buscar01() {
+        ArrayList<Cidade> array = new ArrayList<>();
+        
         do {
             Cidade primeiro = fronteira.getPrimeiro();
             primeiro.setVisitado(true);
@@ -36,19 +39,33 @@ public class Largura {
             for (Adjacente a : primeiro.getAdjacentes()) {
                 if (a.getCidade().getNome().equals(objetivo.getNome())) {
                     System.out.println("Goal State: " + objetivo.getNome());
-                    return;
+                    
+                    a.getCidade().setCidadePai(primeiro);
+                    array.add(a.getCidade());
+                    
+                    array = CaminhoPercorrido(inicio, objetivo, array);
+                    
+//                    System.out.println("TESTE");
+//                    for(Cidade c : array){
+//                        System.out.println(c.getNome());
+//                    }
+                    
+                    return array;
                 } else {
                     if (!a.getCidade().isVisitado()) {
+                        a.getCidade().setCidadePai(primeiro);
                         a.getCidade().setVisitado(true);
                         fronteira.enfileirar(a.getCidade());
+                        
+                        array.add(a.getCidade());
                     }
                 }
             }
             //primeiro.setVisitado(true);
             //fronteira.desenfileirar();
         } while (!fronteira.getPrimeiro().equals(objetivo.getNome()));
-
-
+        
+        return null;
     }
 
     private boolean pesquisaVisitados() {
@@ -86,6 +103,19 @@ public class Largura {
             }
         }
         return null;
+    }
+    
+    private ArrayList<Cidade> CaminhoPercorrido(Cidade inicio, Cidade objetivo, ArrayList<Cidade> array){
+        ArrayList<Cidade> cidades = new ArrayList<>();
+        cidades.add(objetivo);
+        while( ! objetivo.getCidadePai().getNome().equals(inicio.getNome())){
+            objetivo = objetivo.getCidadePai();
+            
+            if(!cidades.contains(objetivo))
+                cidades.add(objetivo);
+        }
+        cidades.add(inicio);
+        return cidades;
     }
 
 }

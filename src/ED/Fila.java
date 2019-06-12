@@ -4,6 +4,7 @@ import Grafo.Cidade;
 import Grafo.Mapa;
 
 public class Fila {
+
     private int tamanho;
     private Cidade[] cidades;
     private int inicio;

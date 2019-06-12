@@ -34,27 +34,27 @@ public class Mapa {
 
     public Mapa() {
     	 Cidades = new ArrayList<>();
-         Itabaiana = new Cidade("Itabaiana",10,20);
+         Itabaiana = new Cidade("Itabaiana",535,445);
          Frei_Paulo = new Cidade("Frei Paulo",440,350);
-         Moita_Bonita = new Cidade("Moita Bonita",10,20);
-         Lagarto = new Cidade("Lagarto",10,20);
-         Laranjeiras = new Cidade("Laranjeiras",10,20);
-         Macambira = new Cidade("Macambira",10,20);
-         Malhador = new Cidade("Malhador",10,20);
+         Moita_Bonita = new Cidade("Moita Bonita",570,395);
+         Lagarto = new Cidade("Lagarto",420,550);
+         Laranjeiras = new Cidade("Laranjeiras",650,510);
+         Macambira = new Cidade("Macambira",445,405);
+         Malhador = new Cidade("Malhador",595,415);
          Nossa_Senhora_aparecida = new Cidade("Nossa Senhora de Aparecida",500,280);
          Nossa_Senhora_da_Gloria = new Cidade("Gloria",495,185);
-         Nossa_Senhora_das_Dores = new Cidade("Nossa Senhora das Dores",10,20);
-         Nossa_Senhora_do_Socorro = new Cidade("Nossa Senhora do Socorro",10,20);
+         Nossa_Senhora_das_Dores = new Cidade("Nossa Senhora das Dores",630,345);
+         Nossa_Senhora_do_Socorro = new Cidade("Nossa Senhora do Socorro",670,545);
          Pedra_Mole = new Cidade("Pedra Mole",410,400);
-         Pinhao = new Cidade("Pinhao",10,20);
-         Riachuelo = new Cidade("Riachuelo",10,20);
-         Ribeiropolis = new Cidade("Ribeiropolis",10,20);
-         Sao_Cristovao = new Cidade("São Cristovão",10,20);
-         Sao_Domingos = new Cidade("São Domingos",10,20);
+         Pinhao = new Cidade("Pinhao",360,375);
+         Riachuelo = new Cidade("Riachuelo",625,460);
+         Ribeiropolis = new Cidade("Ribeiropolis",525,325);
+         Sao_Cristovao = new Cidade("São Cristovão",633,595);
+         Sao_Domingos = new Cidade("São Domingos",450,470);
          Carira = new Cidade("Carira",405,250);
-         Areia_Branca = new Cidade("Areia Branca",10,20);
-         Aracaju = new Cidade("Aracaju",10,20);
-         Simao_Dias = new Cidade("Simao Dias",10,20);
+         Areia_Branca = new Cidade("Areia Branca",580,495);
+         Aracaju = new Cidade("Aracaju",700,600);
+         Simao_Dias = new Cidade("Simao Dias",340,485);
          
         Cidades.add(Itabaiana);
         Cidades.add(Frei_Paulo);
