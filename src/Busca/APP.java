@@ -90,7 +90,7 @@ public class APP implements ActionListener {
 
     private void inicializarComponentes() {
 
-        ImageIcon background = new ImageIcon("D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA02\\BuscasIA\\MAPA_SERGIPE2.jpg");
+        ImageIcon background = new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\MAPA_SERGIPE.jpg");
         Image img = background.getImage();
         Image temp = img.getScaledInstance(900, 1100, Image.SCALE_SMOOTH);
         background = new ImageIcon(temp);
@@ -161,19 +161,12 @@ public class APP implements ActionListener {
          * selecionadas *
          */
         /*Adicionado a quantidade de pontos correspondes a quantodade de ciades (ficticio ate agora)*/
-<<<<<<< HEAD
+
         pontoAzul = new ArrayList<>();
         for (int i = 0; i < 21; i++) {
             pontoAzul.add(new JLabel(new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\pontoAzul.png")));
         }
-
-=======
-        pontoVermelho = new ArrayList<>();
-        for (int i = 0; i < 5;i++)
-        	pontoVermelho.add(new JLabel(new ImageIcon("D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA02\\BuscasIA\\pontoAzul.png")));
         
-        
->>>>>>> 9fc400df358f012db15f802679a649e979d4c12e
         ArrayList<Cidade> c = new ArrayList<>();
 
         c.add(mapa.getItabaiana());
