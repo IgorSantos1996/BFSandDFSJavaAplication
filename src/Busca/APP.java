@@ -3,6 +3,9 @@ package Busca;
 import Grafo.Cidade;
 import Grafo.Mapa;
 import TelaMatriz.*;
+import TelaCreditos.Creditos;
+import TelaBoasVindas.BoasVindas;
+
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
 import java.awt.*;
@@ -20,8 +23,10 @@ public class APP implements ActionListener {
     private JLabel label02;
     private JLabel label03;
     private JMenuBar mnBarra;
-    private JMenu  mnConsultar;
-    private JMenuItem miSair, miBotao, miAdjacencias, miCodigoFonte;
+    private JMenu mnConsultar, mnSalvar, mnSobre;
+
+
+    private JMenuItem miSair, miBotao, miAdjacencias, miCodigoFonte, miSalvarPdf, miAutores;
     private JButton btlargura;
     private JButton btprofundidade;
     private JFrame frame;
@@ -71,11 +76,15 @@ public class APP implements ActionListener {
         frame = new JFrame("Busca em Largura e Profundidade");
         mnBarra = new JMenuBar();
         //mnArquivo = new JMenu("Arquivos");
+        mnSalvar = new JMenu("Salvar");
         mnConsultar = new JMenu("Consultar");
+        mnSobre = new JMenu("Sobre");
         miSair = new JMenuItem("Sair");
         miAdjacencias = new JMenuItem("Matris de Adjacencias");
         miCodigoFonte = new JMenuItem("Consultar código fonte");
+        miSalvarPdf = new JMenuItem("Salvar como PDF");
         miBotao = new JMenuItem("Botao");
+        miAutores = new JMenuItem("Info autores");
         btlargura = new JButton("Largura");
         btprofundidade = new JButton("Profundidade");
         cb_cidades = new JComboBox();
@@ -99,7 +108,6 @@ public class APP implements ActionListener {
         back.setBounds(0, 0, 500, 600);
 
 
-
         label03 = new JLabel(background);
         // setando o mapa de forma que o ponto vermelho possa sobrescrever o mapa
         frame.setContentPane(label03);
@@ -108,6 +116,8 @@ public class APP implements ActionListener {
         miCodigoFonte.addActionListener(this);
         miSair.addActionListener(this);
         miBotao.addActionListener(this);
+        miSalvarPdf.addActionListener(this);
+        miAutores.addActionListener(this);
         btlargura.addActionListener(this);
         btprofundidade.addActionListener(this);
         cb_cidades.addActionListener(this);
@@ -117,12 +127,16 @@ public class APP implements ActionListener {
         frame.getContentPane().setBackground(Color.BLACK);
 
         //mnArquivo.add(miBotao);
+        mnBarra.add(mnConsultar);
+        mnBarra.add(mnSalvar);
+        mnBarra.add(mnSobre);
+        mnSalvar.add(miSalvarPdf);
         mnConsultar.add(miSair);
         mnConsultar.add(miAdjacencias);
         mnConsultar.add(miCodigoFonte);
-
+        mnSobre.add(miAutores);
         //mnBarra.add(mnArquivo);
-        mnBarra.add(mnConsultar);
+
 
         ArrayList<String> Nome_Cidades = new ArrayList<>();
         mapa.getCidades().forEach(item -> Nome_Cidades.add(item.getNome()));
@@ -166,7 +180,7 @@ public class APP implements ActionListener {
         for (int i = 0; i < 21; i++) {
             pontoAzul.add(new JLabel(new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\pontoAzul.png")));
         }
-        
+
         ArrayList<Cidade> c = new ArrayList<>();
 
         c.add(mapa.getItabaiana());
@@ -205,7 +219,9 @@ public class APP implements ActionListener {
     //}
 
     public static void main(String[] args) {
+
         try {
+
             for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
                     UIManager.setLookAndFeel(info.getClassName());
@@ -215,6 +231,9 @@ public class APP implements ActionListener {
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        BoasVindas b = new BoasVindas(3400);
+        b.showSplashAndExit();
 
         APP principal = new APP();
 
@@ -253,9 +272,13 @@ public class APP implements ActionListener {
 
         } else if (e.getSource().equals(miCodigoFonte)) {
             String[] opcao = {"fechar"};
-            JOptionPane.showOptionDialog(null, "Funcionalidade a ser implementada", "Consultar Matriz Adj", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opcao, opcao[0]);
+            JOptionPane.showOptionDialog(null, "Funcionalidade a ser implementada", "Consultar codigo Fonte", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opcao, opcao[0]);
             Toolkit.getDefaultToolkit().beep();
 
+        } else if (e.getSource().equals(miSalvarPdf)) {
+
+        } else if (e.getSource().equals(miAutores)) {
+            new Creditos().setVisible(true);
         }
     }
 
