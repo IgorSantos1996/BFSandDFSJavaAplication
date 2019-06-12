@@ -41,33 +41,37 @@ public class APP implements ActionListener {
     private ArrayList<JLabel> pontoAzul;
 
     public void ativarPonto(ArrayList<Cidade> rota) {
-        tponto = new Thread() {
-            public void run() {
-                int x = 0;
-                while (true) {
-                    x++;
-                    if (x % 2 == 0) {
-                        for (int i = 0; i < rota.size(); i++) {
-                            frame.add(pontoAzul.get(i)).setBounds(rota.get(i).getX(), rota.get(i).getY(), 20, 20);
-                            pontoAzul.get(i).setVisible(true);
+        if(tponto == null){
+            tponto = new Thread() {
+                public void run() {
+                    int x = 0;
+                    while (true) {
+                        x++;
+                        if (x % 2 == 0) {
+                            for (int i = 0; i < rota.size(); i++) {
+                                frame.add(pontoAzul.get(i)).setBounds(rota.get(i).getX(), rota.get(i).getY(), 20, 20);
+                                pontoAzul.get(i).setVisible(true);
+                            }
+
+                        } else {
+                            for (int i = 0; i < rota.size(); i++) {
+                                pontoAzul.get(i).setVisible(false);
+                            }
                         }
 
-                    } else {
-                        for (int i = 0; i < rota.size(); i++) {
-                            pontoAzul.get(i).setVisible(false);
+                        try {
+                            Thread.sleep(800);
+                        } catch (InterruptedException ex) {
+                            System.out.println("Erro: " + ex);
                         }
-                    }
 
-                    try {
-                        Thread.sleep(800);
-                    } catch (InterruptedException ex) {
-                        System.out.println("Erro: " + ex);
                     }
-
                 }
-            }
-        };
-        tponto.start();
+            };
+            tponto.start();
+        } else {
+            tponto.stop();
+        }
     }
 
     public APP() {
@@ -154,12 +158,12 @@ public class APP implements ActionListener {
         frame.add(label02);
         // frame.add(label03);
 
-        btlargura.setBounds(650, 350, 150, 30);
-        btprofundidade.setBounds(650, 300, 150, 30);
-        cb_cidades.setBounds(650, 70, 200, 30);
-        cb_cidades02.setBounds(650, 100, 200, 30);
-        label.setBounds(620, 70, 200, 30);
-        label02.setBounds(620, 100, 200, 30);
+        btlargura.setBounds(650, 40, 150, 30);
+        btprofundidade.setBounds(650, 100, 150, 30);
+        cb_cidades.setBounds(70, 40, 200, 30);
+        cb_cidades02.setBounds(70, 100, 200, 30);
+        label.setBounds(70, 10, 200, 30);
+        label02.setBounds(70, 70, 200, 30);
         label03.setBounds(0, -200, 1100, 1100);
 
         frame.setPreferredSize(new java.awt.Dimension(900, 650));
@@ -177,7 +181,7 @@ public class APP implements ActionListener {
         /*Adicionado a quantidade de pontos correspondes a quantodade de ciades (ficticio ate agora)*/
 
         pontoAzul = new ArrayList<>();
-        for (int i = 0; i < 21; i++) {
+        for (int i = 0; i < 22; i++) {
             pontoAzul.add(new JLabel(new ImageIcon("src/Imagens/pontoAzul.png")));
         }
 
@@ -248,11 +252,15 @@ public class APP implements ActionListener {
                     PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
             cidades = new ArrayList<>();
             cidades = l.buscar01();
+            MostraRota(cidades);
             ativarPonto(cidades);
         } else if (e.getSource().equals(btprofundidade)) {
             Profundidade p = new Profundidade(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
                     PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
-            p.buscar();
+            cidades = new ArrayList<>();
+            cidades = p.buscar(cidades);
+            MostraRota(cidades);
+            ativarPonto(cidades);
         } else if (e.getSource().equals(cb_cidades)) {
             System.out.println(cb_cidades.getSelectedItem().toString());
             ArrayList<String> Nome_Cidades = new ArrayList<>();
@@ -290,5 +298,15 @@ public class APP implements ActionListener {
             }
         }
         return null;
+    }
+    
+    private void MostraRota(ArrayList<Cidade> array){
+        int size = array.size() - 1;
+        String rota = "";
+        for (int i = 0; i < size + 1 ; i++) {
+            Cidade c = array.get(size - i);
+            rota += (i+1) + "º\t " + c.getNome() + "\n";
+        }
+        JOptionPane.showMessageDialog(null, rota);
     }
 }

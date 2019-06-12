@@ -44,12 +44,6 @@ public class Largura {
                     array.add(a.getCidade());
                     
                     array = CaminhoPercorrido(inicio, objetivo);
-                    
-//                    System.out.println("TESTE");
-//                    for(Cidade c : array){
-//                        System.out.println(c.getNome());
-//                    }
-                    
                     return array;
                 } else {
                     if (!a.getCidade().isVisitado()) {

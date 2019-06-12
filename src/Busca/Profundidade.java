@@ -4,6 +4,7 @@ import ED.Pilha;
 import Grafo.Adjacente;
 import Grafo.Cidade;
 import Grafo.Mapa;
+import java.util.ArrayList;
 
 public class Profundidade {
 
@@ -22,13 +23,12 @@ public class Profundidade {
         achou = false;
     }
 
-    public void buscar() {
+    public ArrayList<Cidade> buscar(ArrayList<Cidade> cidades) {
         Cidade topo = fronteira.getTopo();
         System.out.println("Topo: " + topo.getNome());
 
         if (topo.equals(objetivo)) {
             achou = true;
-
         } else {
             for (Adjacente a : topo.getAdjacentes()) {
                 if (!achou) {
@@ -36,12 +36,14 @@ public class Profundidade {
                     if (a.getCidade().isVisitado() == false) {
                         a.getCidade().setVisitado(true);
                         fronteira.empilhar(a.getCidade());
-                        buscar();
+                        buscar(cidades);
                     }
                 }
             }
         }
-        System.out.println("Desempilhou: " + fronteira.desempilhar().getNome());
+        Cidade cityDesempilhada = fronteira.desempilhar();
+        cidades.add(cityDesempilhada);
+        System.out.println("Desempilhou: " + cityDesempilhada.getNome());
+        return cidades;
     }
-
 }
