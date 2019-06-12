@@ -40,6 +40,7 @@ public class APP implements ActionListener {
     // Componentes para colocar o ponto azul na tela
     Thread tponto;
     private ArrayList<JLabel> pontoAzul;
+    private ArrayList<JLabel> pontoVerde;
 
     public void ativarPonto(ArrayList<Cidade> rota) {
         if (tponto == null) {
@@ -186,6 +187,7 @@ public class APP implements ActionListener {
         /*Adicionado a quantidade de pontos correspondes a quantodade de ciades (ficticio ate agora)*/
 
         pontoAzul = new ArrayList<>();
+        pontoVerde = new ArrayList<>();
         for (int i = 0; i < 22; i++) {
             pontoAzul.add(new JLabel(new ImageIcon("src/Imagens/pontoAzul.png")));
         }
@@ -257,15 +259,15 @@ public class APP implements ActionListener {
                     PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
             cidades = new ArrayList<>();
             cidades = l.buscar01();
-            MostraRota(cidades);
             ativarPonto(cidades);
+            l.MostraRota(cidades);
         } else if (e.getSource().equals(btprofundidade)) {
             Profundidade p = new Profundidade(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
                     PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
             cidades = new ArrayList<>();
             cidades = p.buscar(cidades);
-            MostraRota(cidades);
             ativarPonto(cidades);
+            MostraRota(cidades);
         } else if (e.getSource().equals(cb_cidades)) {
             System.out.println(cb_cidades.getSelectedItem().toString());
             ArrayList<String> Nome_Cidades = new ArrayList<>();
@@ -317,6 +319,6 @@ public class APP implements ActionListener {
             Cidade c = array.get(size - i);
             rota += (i + 1) + "º\t " + c.getNome() + "\n";
         }
-        JOptionPane.showMessageDialog(null, rota);
+        JOptionPane.showMessageDialog(null, rota, "Caminho Percorrido", JOptionPane.DEFAULT_OPTION);
     }
 }
