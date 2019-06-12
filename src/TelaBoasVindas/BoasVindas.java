@@ -59,6 +59,7 @@ public class BoasVindas extends JWindow {
 
     public void showSplashAndExit() {
         showSplash();
+        dispose();
 
     }
 

@@ -232,7 +232,7 @@ public class APP implements ActionListener {
             e.printStackTrace();
         }
 
-        BoasVindas b = new BoasVindas(3400);
+        BoasVindas b = new BoasVindas(2400);
         b.showSplashAndExit();
 
         APP principal = new APP();
@@ -278,7 +278,7 @@ public class APP implements ActionListener {
         } else if (e.getSource().equals(miSalvarPdf)) {
 
         } else if (e.getSource().equals(miAutores)) {
-            new Creditos().setVisible(true);
+            new Creditos();
         }
     }
 
