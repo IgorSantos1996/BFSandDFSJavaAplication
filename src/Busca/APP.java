@@ -2,13 +2,15 @@ package Busca;
 
 import Grafo.Cidade;
 import Grafo.Mapa;
-
+import TelaMatriz.*;
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.geom.Line2D;
+import java.net.URL;
+import java.awt.image.*;
+import javax.swing.ImageIcon;
 import java.util.ArrayList;
 
 public class APP implements ActionListener {
@@ -17,7 +19,7 @@ public class APP implements ActionListener {
     private JLabel label02;
     private JLabel label03;
     private JMenuBar mnBarra;
-    private JMenu mnArquivo, mnConsultar;
+    private JMenu  mnConsultar;
     private JMenuItem miSair, miBotao, miAdjacencias, miCodigoFonte;
     private JButton btlargura;
     private JButton btprofundidade;
@@ -29,12 +31,8 @@ public class APP implements ActionListener {
     
     // Componentes para colocar o ponto vermelho na tela
 
+    //Thread tponto;
     Thread tponto;
-    private JLabel pontoAzul;
-
-    public void ativarPontoAzul() {
-
-  Thread tponto;
     private ArrayList<JLabel> pontoVermelho;
     
     public void ativarPontoVermelho(ArrayList<Cidade> rota) {
@@ -70,9 +68,9 @@ public class APP implements ActionListener {
     public APP() {
 
         mapa = new Mapa();
-        frame = new JFrame("Bike Show");
+        frame = new JFrame("Busca em Largura e Profundidade");
         mnBarra = new JMenuBar();
-        mnArquivo = new JMenu("Arquivos");
+        //mnArquivo = new JMenu("Arquivos");
         mnConsultar = new JMenu("Consultar");
         miSair = new JMenuItem("Sair");
         miAdjacencias = new JMenuItem("Matris de Adjacencias");
@@ -86,22 +84,25 @@ public class APP implements ActionListener {
         label02 = new JLabel("Para");
 
         inicializarComponentes();
+
     }
 
     private void inicializarComponentes() {
-        ImageIcon background = new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\MAPA_SERGIPE.jpg");
+
+        ImageIcon background = new ImageIcon("D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA02\\BuscasIA\\MAPA_SERGIPE2.jpg");
         Image img = background.getImage();
         Image temp = img.getScaledInstance(900, 1100, Image.SCALE_SMOOTH);
         background = new ImageIcon(temp);
         JLabel back = new JLabel(background);
         back.setLayout(null);
         back.setBounds(0, 0, 500, 600);
-        //pega a altura e largura
-        //int altura = img.getIconHeight();
-        //int largura = img.getIconWidth();
+
+
+
         label03 = new JLabel(background);
         // setando o mapa de forma que o ponto vermelho possa sobrescrever o mapa
         frame.setContentPane(label03);
+
         miAdjacencias.addActionListener(this);
         miCodigoFonte.addActionListener(this);
         miSair.addActionListener(this);
@@ -114,12 +115,12 @@ public class APP implements ActionListener {
         //frame.getContentPane().setLayout(null);
         frame.getContentPane().setBackground(Color.BLACK);
 
-        mnArquivo.add(miBotao);
+        //mnArquivo.add(miBotao);
         mnConsultar.add(miSair);
         mnConsultar.add(miAdjacencias);
         mnConsultar.add(miCodigoFonte);
 
-        mnBarra.add(mnArquivo);
+        //mnBarra.add(mnArquivo);
         mnBarra.add(mnConsultar);
 
         ArrayList<String> Nome_Cidades = new ArrayList<>();
@@ -159,7 +160,7 @@ public class APP implements ActionListener {
         /*Adicionado a quantidade de pontos correspondes a quantodade de ciades (ficticio ate agora)*/
         pontoVermelho = new ArrayList<>();
         for (int i = 0; i < 5;i++)
-        	pontoVermelho.add(new JLabel(new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\pontoAzul.png")));
+        	pontoVermelho.add(new JLabel(new ImageIcon("D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA02\\BuscasIA\\pontoAzul.png")));
         
         
         ArrayList<Cidade> c = new ArrayList<>();
@@ -227,10 +228,13 @@ public class APP implements ActionListener {
         } else if (e.getSource().equals(miSair)) {
             System.exit(0);
         } else if (e.getSource().equals(miAdjacencias)) {
+            new telaMatriz().setVisible(true);
+
+
+        } else if (e.getSource().equals(miCodigoFonte)) {
             String[] opcao = {"fechar"};
             JOptionPane.showOptionDialog(null, "Funcionalidade a ser implementada", "Consultar Matriz Adj", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opcao, opcao[0]);
             Toolkit.getDefaultToolkit().beep();
-        } else if (e.getSource().equals(miCodigoFonte)) {
 
         }
     }
