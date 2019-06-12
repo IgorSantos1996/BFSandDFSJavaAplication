@@ -30,6 +30,7 @@ public class APP implements ActionListener {
     private JButton btlargura;
     private JButton btprofundidade;
     private JFrame frame;
+    private JButton novaBusca = new JButton("Nova Busca");
     private static JComboBox cb_cidades;
     private static JComboBox cb_cidades02;
     private Image iconeTitulo;
@@ -41,7 +42,7 @@ public class APP implements ActionListener {
     private ArrayList<JLabel> pontoAzul;
 
     public void ativarPonto(ArrayList<Cidade> rota) {
-        if(tponto == null){
+        if (tponto == null) {
             tponto = new Thread() {
                 public void run() {
                     int x = 0;
@@ -91,6 +92,7 @@ public class APP implements ActionListener {
         miAutores = new JMenuItem("Info autores");
         btlargura = new JButton("Largura");
         btprofundidade = new JButton("Profundidade");
+        novaBusca = new JButton("Nova Busca");
         cb_cidades = new JComboBox();
         cb_cidades02 = new JComboBox();
         label = new JLabel("De");
@@ -126,6 +128,7 @@ public class APP implements ActionListener {
         btprofundidade.addActionListener(this);
         cb_cidades.addActionListener(this);
         cb_cidades02.addActionListener(this);
+        novaBusca.addActionListener(this);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         //frame.getContentPane().setLayout(null);
         frame.getContentPane().setBackground(Color.BLACK);
@@ -157,7 +160,9 @@ public class APP implements ActionListener {
         frame.add(cb_cidades02);
         frame.add(label02);
         // frame.add(label03);
+        frame.add(novaBusca);
 
+        novaBusca.setBounds(100, 500, 150, 30);
         btlargura.setBounds(650, 40, 150, 30);
         btprofundidade.setBounds(650, 100, 150, 30);
         cb_cidades.setBounds(70, 40, 200, 30);
@@ -277,21 +282,26 @@ public class APP implements ActionListener {
             System.exit(0);
         } else if (e.getSource().equals(miAdjacencias)) {
             new telaMatriz().setVisible(true);
-
-
         } else if (e.getSource().equals(miCodigoFonte)) {
             String[] opcao = {"fechar"};
             JOptionPane.showOptionDialog(null, "Funcionalidade a ser implementada", "Consultar codigo Fonte", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opcao, opcao[0]);
             Toolkit.getDefaultToolkit().beep();
-
         } else if (e.getSource().equals(miSalvarPdf)) {
 
         } else if (e.getSource().equals(miAutores)) {
             new Creditos();
+        } else if (e.getSource().equals(novaBusca)) {
+            fechar();
         }
     }
 
-    private Cidade PesquisaCidadeNome(String nome) {
+    public void fechar(){
+        frame.dispose();
+        APP.main(null);
+
+    }
+
+        private Cidade PesquisaCidadeNome(String nome) {
         for (Cidade c : mapa.getCidades()) {
             if (c.getNome().equals(nome)) {
                 return c;
@@ -299,13 +309,13 @@ public class APP implements ActionListener {
         }
         return null;
     }
-    
-    private void MostraRota(ArrayList<Cidade> array){
+
+    private void MostraRota(ArrayList<Cidade> array) {
         int size = array.size() - 1;
         String rota = "";
-        for (int i = 0; i < size + 1 ; i++) {
+        for (int i = 0; i < size + 1; i++) {
             Cidade c = array.get(size - i);
-            rota += (i+1) + "º\t " + c.getNome() + "\n";
+            rota += (i + 1) + "º\t " + c.getNome() + "\n";
         }
         JOptionPane.showMessageDialog(null, rota);
     }

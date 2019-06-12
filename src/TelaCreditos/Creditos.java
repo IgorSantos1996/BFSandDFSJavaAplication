@@ -8,7 +8,14 @@ public class Creditos extends JFrame {
     public Creditos() {
 
         String[] opcao = {"OK"};
-        JOptionPane.showOptionDialog(null, "Universidade Federal de Sergipe\n Docente: Alcides\n Discente: Joan Vitor", "Sobre", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcao, opcao[0]);
+        JOptionPane.showOptionDialog(null,
+                "Universidade Federal de Sergipe\n " +
+                        "Docente: Dr. Alcides Xavier Benicasa\n " +
+                        "Disciplina: Inteligência Artificial\n" +
+                        "Discentes: Bruno Santana, Clovijan, Igor Terriaga e Joan Vitor\n",
+                "Sobre", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
+                null, opcao, opcao[0]);
+
         Toolkit.getDefaultToolkit().beep();
 
     }
