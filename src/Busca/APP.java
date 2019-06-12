@@ -99,9 +99,9 @@ public class APP implements ActionListener {
 
     private void inicializarComponentes() {
 
-        ImageIcon background = new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\MAPA_SERGIPE.jpg");
+        ImageIcon background = new ImageIcon("src/Imagens/MAPA-800x600.png");
         Image img = background.getImage();
-        Image temp = img.getScaledInstance(900, 1100, Image.SCALE_SMOOTH);
+        Image temp = img.getScaledInstance(800, 600, Image.SCALE_SMOOTH);
         background = new ImageIcon(temp);
         JLabel back = new JLabel(background);
         back.setLayout(null);
@@ -156,13 +156,13 @@ public class APP implements ActionListener {
 
         btlargura.setBounds(650, 350, 150, 30);
         btprofundidade.setBounds(650, 300, 150, 30);
-        cb_cidades.setBounds(650, 70, 150, 30);
-        cb_cidades02.setBounds(650, 100, 150, 30);
+        cb_cidades.setBounds(650, 70, 200, 30);
+        cb_cidades02.setBounds(650, 100, 200, 30);
         label.setBounds(620, 70, 200, 30);
         label02.setBounds(620, 100, 200, 30);
         label03.setBounds(0, -200, 1100, 1100);
 
-        frame.setPreferredSize(new java.awt.Dimension(1200, 900));
+        frame.setPreferredSize(new java.awt.Dimension(900, 650));
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setResizable(false);
@@ -178,7 +178,7 @@ public class APP implements ActionListener {
 
         pontoAzul = new ArrayList<>();
         for (int i = 0; i < 21; i++) {
-            pontoAzul.add(new JLabel(new ImageIcon("D:\\JOAN VITOR\\UFS\\8º PERIODO\\INTELIGENCIA ARTIFICIAL\\1º UNIDADE\\PROJETO - BUSCA SEM INFORMAÇÃO EM PROFUNDIDADE E LARGURA\\NetBeans\\BuscasSemInformacao\\pontoAzul.png")));
+            pontoAzul.add(new JLabel(new ImageIcon("src/Imagens/pontoAzul.png")));
         }
 
         ArrayList<Cidade> c = new ArrayList<>();
@@ -204,6 +204,7 @@ public class APP implements ActionListener {
         c.add(mapa.getAreia_Branca());
         c.add(mapa.getAracaju());
         c.add(mapa.getSimao_Dias());
+        c.add(mapa.getCampo_do_Brito());
 
         // colocando ponto vermelho na tela
         //ativarPonto(c);
@@ -232,7 +233,7 @@ public class APP implements ActionListener {
             e.printStackTrace();
         }
 
-        BoasVindas b = new BoasVindas(2400);
+        BoasVindas b = new BoasVindas(0);
         b.showSplashAndExit();
 
         APP principal = new APP();

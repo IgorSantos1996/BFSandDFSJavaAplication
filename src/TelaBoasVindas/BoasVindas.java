@@ -38,7 +38,7 @@ public class BoasVindas extends JWindow {
 
         // Constrói o splash screen
         JLabel label = new JLabel(new ImageIcon(
-                "D:\\6 periodo\\Inteligencia Artificial\\TrabalhoIA02\\BuscasIA\\giphy.gif"));
+                "src\\Imagens\\giphy.gif"));
         JLabel copyrt = new JLabel
                 ("Busca em Largura e profundidade", JLabel.CENTER);
         copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 18));

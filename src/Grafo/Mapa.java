@@ -28,6 +28,7 @@ public class Mapa {
     private Cidade Sao_Domingos;
     private Cidade Sao_Cristovao;
     private Cidade Carira;
+    private Cidade Campo_do_Brito;
     private Cidade Simao_Dias;
 
     private ArrayList<Cidade> Cidades;
@@ -42,7 +43,7 @@ public class Mapa {
          Macambira = new Cidade("Macambira",445,405);
          Malhador = new Cidade("Malhador",595,415);
          Nossa_Senhora_aparecida = new Cidade("Nossa Senhora de Aparecida",500,280);
-         Nossa_Senhora_da_Gloria = new Cidade("Gloria",495,185);
+         Nossa_Senhora_da_Gloria = new Cidade("Nossa Senhora da Glória",495,185);
          Nossa_Senhora_das_Dores = new Cidade("Nossa Senhora das Dores",630,345);
          Nossa_Senhora_do_Socorro = new Cidade("Nossa Senhora do Socorro",670,545);
          Pedra_Mole = new Cidade("Pedra Mole",410,400);
@@ -55,6 +56,7 @@ public class Mapa {
          Areia_Branca = new Cidade("Areia Branca",580,495);
          Aracaju = new Cidade("Aracaju",700,600);
          Simao_Dias = new Cidade("Simao Dias",340,485);
+         Campo_do_Brito = new Cidade("Campo do Brito", 10, 10);
          
         Cidades.add(Itabaiana);
         Cidades.add(Frei_Paulo);
@@ -77,6 +79,7 @@ public class Mapa {
         Cidades.add(Areia_Branca);
         Cidades.add(Aracaju);
         Cidades.add(Simao_Dias);
+        Cidades.add(Campo_do_Brito);
 
         /* Adj de Itabaiana */
         Itabaiana.addCidadeAdjacente(new Adjacente(Areia_Branca));
@@ -85,6 +88,7 @@ public class Mapa {
         Itabaiana.addCidadeAdjacente(new Adjacente(Macambira));
         Itabaiana.addCidadeAdjacente(new Adjacente(Ribeiropolis));
         Itabaiana.addCidadeAdjacente(new Adjacente(Malhador));
+        Itabaiana.addCidadeAdjacente(new Adjacente(Campo_do_Brito));
 
         /*Adj de Frei Paulo*/
         Frei_Paulo.addCidadeAdjacente(new Adjacente(Pinhao));
@@ -106,6 +110,12 @@ public class Mapa {
         Lagarto.addCidadeAdjacente(new Adjacente(Sao_Domingos));
         Lagarto.addCidadeAdjacente(new Adjacente(Simao_Dias));
 
+        /*Campo do Brito*/
+        Campo_do_Brito.addCidadeAdjacente(new Adjacente(Itabaiana));
+        Campo_do_Brito.addCidadeAdjacente(new Adjacente(Areia_Branca));
+        Campo_do_Brito.addCidadeAdjacente(new Adjacente(Macambira));
+        Campo_do_Brito.addCidadeAdjacente(new Adjacente(Sao_Domingos));
+
         /*Adj de Laranjeiras*/
         Laranjeiras.addCidadeAdjacente(new Adjacente(Riachuelo));
         Laranjeiras.addCidadeAdjacente(new Adjacente(Sao_Cristovao));
@@ -120,6 +130,7 @@ public class Mapa {
         Macambira.addCidadeAdjacente(new Adjacente(Ribeiropolis));
         Macambira.addCidadeAdjacente(new Adjacente(Sao_Domingos));
         Macambira.addCidadeAdjacente(new Adjacente(Carira));
+        Macambira.addCidadeAdjacente(new Adjacente(Campo_do_Brito));
 
         /*Adj de Malhador*/
         Malhador.addCidadeAdjacente(new Adjacente(Itabaiana));
@@ -162,7 +173,6 @@ public class Mapa {
         Pedra_Mole.addCidadeAdjacente(new Adjacente(Simao_Dias));
 
         /*Adj de Pinhao */
-
         Pinhao.addCidadeAdjacente(new Adjacente(Simao_Dias));
         Pinhao.addCidadeAdjacente(new Adjacente(Frei_Paulo));
         Pinhao.addCidadeAdjacente(new Adjacente(Lagarto));
@@ -172,7 +182,6 @@ public class Mapa {
         Pinhao.addCidadeAdjacente(new Adjacente(Pedra_Mole));
         Pinhao.addCidadeAdjacente(new Adjacente(Ribeiropolis));
         Pinhao.addCidadeAdjacente(new Adjacente(Carira));
-
 
         /*Adj de Riachuelo*/
         Riachuelo.addCidadeAdjacente(new Adjacente(Laranjeiras));
@@ -205,6 +214,7 @@ public class Mapa {
         Sao_Domingos.addCidadeAdjacente(new Adjacente(Macambira));
         Sao_Domingos.addCidadeAdjacente(new Adjacente(Simao_Dias));
         Sao_Domingos.addCidadeAdjacente(new Adjacente(Itabaiana));
+        Sao_Domingos.addCidadeAdjacente(new Adjacente(Campo_do_Brito));
 
         /*Adj de Carira*/
         Carira.addCidadeAdjacente(new Adjacente(Frei_Paulo));
@@ -222,7 +232,7 @@ public class Mapa {
         Areia_Branca.addCidadeAdjacente(new Adjacente(Malhador));
         Areia_Branca.addCidadeAdjacente(new Adjacente(Riachuelo));
         Areia_Branca.addCidadeAdjacente(new Adjacente(Sao_Cristovao));
-
+        Areia_Branca.addCidadeAdjacente(new Adjacente(Campo_do_Brito));
 
         /*Adj de Simao Dias*/
         Simao_Dias.addCidadeAdjacente(new Adjacente(Lagarto));
@@ -427,6 +437,14 @@ public class Mapa {
 
     public ArrayList<Cidade> getCidades() {
         return Cidades;
+    }
+
+    public Cidade getCampo_do_Brito() {
+        return Campo_do_Brito;
+    }
+
+    public void setCampo_do_Brito(Cidade campo_do_Brito) {
+        Campo_do_Brito = campo_do_Brito;
     }
 
     public void setCidades(ArrayList<Cidade> cidades) {
