@@ -1,10 +1,13 @@
 package Busca;
 
+import GerarPDF.GerarPdf;
 import Grafo.Cidade;
 import Grafo.Mapa;
 import TelaMatriz.*;
 import TelaCreditos.Creditos;
 import TelaBoasVindas.BoasVindas;
+import Busca.Profundidade;
+import Busca.Largura;
 
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
@@ -42,7 +45,7 @@ public class APP implements ActionListener {
     private ArrayList<JLabel> pontoAzul;
     private ArrayList<JLabel> pontoVerde;
 
-    public void ativarPonto(ArrayList<Cidade> rota){
+    public void ativarPonto(ArrayList<Cidade> rota) {
         tponto = new Thread() {
             public void run() {
                 int x = 0;
@@ -72,7 +75,7 @@ public class APP implements ActionListener {
         tponto.start();
     }
 
-    public void ativarPontoVerde(ArrayList<Cidade> rota){
+    public void ativarPontoVerde(ArrayList<Cidade> rota) {
         tponto = new Thread() {
             public void run() {
                 int x = 0;
@@ -101,7 +104,7 @@ public class APP implements ActionListener {
         };
         tponto.start();
     }
-    
+
     public APP() {
 
         mapa = new Mapa();
@@ -287,7 +290,7 @@ public class APP implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(btlargura)) {
-            Cidade inicio =  PesquisaCidadeNome(cb_cidades.getSelectedItem().toString());
+            Cidade inicio = PesquisaCidadeNome(cb_cidades.getSelectedItem().toString());
             Cidade objetivo = PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString());
             Largura l = new Largura(inicio, objetivo);
             cidades = new ArrayList<>();
@@ -329,7 +332,12 @@ public class APP implements ActionListener {
             JOptionPane.showOptionDialog(null, "Funcionalidade a ser implementada", "Consultar codigo Fonte", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opcao, opcao[0]);
             Toolkit.getDefaultToolkit().beep();
         } else if (e.getSource().equals(miSalvarPdf)) {
-
+            Cidade inicio = PesquisaCidadeNome(cb_cidades.getSelectedItem().toString());
+            Cidade objetivo = PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString());
+            Largura l = new Largura(inicio, objetivo);
+            cidades = new ArrayList<>();
+            cidades = l.buscar01();
+            GerarPdf pdf = new GerarPdf(l.MostraRota(cidades));
         } else if (e.getSource().equals(miAutores)) {
             new Creditos();
         } else if (e.getSource().equals(novaBusca)) {
