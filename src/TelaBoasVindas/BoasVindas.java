@@ -22,8 +22,8 @@ public class BoasVindas extends JWindow {
         progressBar = new JProgressBar();
         progressBar.setForeground(Color.GREEN);
         progressBar.setPreferredSize(new java.awt.Dimension(10, 50));
-        progressBar.setBounds(10, 400, 500, 100);
-        progressBar.setBorderPainted(false);
+        progressBar.setBounds(0, 400, 600, 100);
+        progressBar.setBorderPainted(true);
         progressBar.setIndeterminate(true);
         getContentPane().add(progressBar);
 
@@ -44,8 +44,8 @@ public class BoasVindas extends JWindow {
         copyrt.setFont(new Font("Sans-Serif", Font.BOLD, 18));
         content.add(label, BorderLayout.CENTER);
         content.add(copyrt, BorderLayout.SOUTH);
-        //Color oraRed = new Color(255, 231, 238, 255);
-        //content.setBorder(BorderFactory.createLineBorder(oraRed, 10));
+        Color oraRed = new Color(255, 231, 238, 255);
+        content.setBorder(BorderFactory.createLineBorder(oraRed, 5));
         // Torna visível
         setVisible(true);
 

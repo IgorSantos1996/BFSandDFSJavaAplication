@@ -108,16 +108,20 @@ public class APP implements ActionListener {
 
         ImageIcon background = new ImageIcon("src/Imagens/MAPA-800x600.png");
         Image img = background.getImage();
+
         Image temp = img.getScaledInstance(800, 600, Image.SCALE_SMOOTH);
         background = new ImageIcon(temp);
         JLabel back = new JLabel(background);
         back.setLayout(null);
+
+        //back.setBackground(Color.ORANGE);
         back.setBounds(0, 0, 500, 600);
 
 
         label03 = new JLabel(background);
         // setando o mapa de forma que o ponto vermelho possa sobrescrever o mapa
         frame.setContentPane(label03);
+
 
         miAdjacencias.addActionListener(this);
         miCodigoFonte.addActionListener(this);
@@ -131,8 +135,9 @@ public class APP implements ActionListener {
         cb_cidades02.addActionListener(this);
         novaBusca.addActionListener(this);
         frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        //frame.getContentPane().setLayout(null);
-        frame.getContentPane().setBackground(Color.BLACK);
+        //frame.setBackground(Color.GREEN);
+        frame.getContentPane().setLayout(null);
+        //frame.getContentPane().setBackground(new java.awt.Color(204, 166, 166));
 
         //mnArquivo.add(miBotao);
         mnBarra.add(mnConsultar);
@@ -244,7 +249,7 @@ public class APP implements ActionListener {
             e.printStackTrace();
         }
 
-        BoasVindas b = new BoasVindas(0);
+        BoasVindas b = new BoasVindas(4000);
         b.showSplashAndExit();
 
         APP principal = new APP();
@@ -297,13 +302,13 @@ public class APP implements ActionListener {
         }
     }
 
-    public void fechar(){
+    public void fechar() {
         frame.dispose();
         APP.main(null);
 
     }
 
-        private Cidade PesquisaCidadeNome(String nome) {
+    private Cidade PesquisaCidadeNome(String nome) {
         for (Cidade c : mapa.getCidades()) {
             if (c.getNome().equals(nome)) {
                 return c;
