@@ -105,27 +105,25 @@ public class Largura {
     // Mostra o caminhamento da busca como do caminho a ser seguido
     public String MostraRota(ArrayList<Cidade> array){
         int size = array.size() - 1;
-        String rota = "Caminhamento da Busca em Largura: \n";
+        String rota = "Caminhamento da Busca em Largura: (PONTOS AZUIS') \n";
         for (int i = 0; i < size + 1 ; i++) {
             Cidade c = array.get(i);
             rota += "  " + (i+1) + "º " + c.getNome() + "\n";
         }
         
         array = CaminhoPercorrido(inicio, objetivo);
-        rota += "\nRota a ser seguida: \n";
+        rota += "\nRota a ser seguida: (PONTOS VERDES)\n";
         int cont = 1;
         for (int i = array.size() - 1 ; i > -1 ; i--) {
             Cidade c = array.get(i);
             rota += "  " + cont + "º " + c.getNome() + "\n";
             cont ++;
         }
-        //return rota;
-        JOptionPane.showMessageDialog(null, rota, "Caminho Percorrido", JOptionPane.DEFAULT_OPTION);
         return rota;
     }
     
     // caminhamento dos pais
-    private ArrayList<Cidade> CaminhoPercorrido(Cidade inicio, Cidade objetivo){
+    public ArrayList<Cidade> CaminhoPercorrido(Cidade inicio, Cidade objetivo){
         ArrayList<Cidade> cidades = new ArrayList<>();
         cidades.add(objetivo);
         while( ! objetivo.getCidadePai().getNome().equals(inicio.getNome())){

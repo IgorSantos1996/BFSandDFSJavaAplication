@@ -42,39 +42,65 @@ public class APP implements ActionListener {
     private ArrayList<JLabel> pontoVerde;
 
     public void ativarPonto(ArrayList<Cidade> rota) {
-        if(tponto == null){
-            tponto = new Thread() {
-                public void run() {
-                    int x = 0;
-                    while (true) {
-                        x++;
-                        if (x % 2 == 0) {
-                            for (int i = 0; i < rota.size(); i++) {
-                                frame.add(pontoAzul.get(i)).setBounds(rota.get(i).getX(), rota.get(i).getY(), 20, 20);
-                                pontoAzul.get(i).setVisible(true);
-                            }
-
-                        } else {
-                            for (int i = 0; i < rota.size(); i++) {
-                                pontoAzul.get(i).setVisible(false);
-                            }
+        tponto = new Thread() {
+            public void run() {
+                int x = 0;
+                while (true) {
+                    x++;
+                    if (x % 2 == 0) {
+                        for (int i = 0; i < rota.size(); i++) {
+                            frame.add(pontoAzul.get(i)).setBounds(rota.get(i).getX(), rota.get(i).getY(), 20, 20);
+                            pontoAzul.get(i).setVisible(true);
                         }
 
-                        try {
-                            Thread.sleep(800);
-                        } catch (InterruptedException ex) {
-                            System.out.println("Erro: " + ex);
+                    } else {
+                        for (int i = 0; i < rota.size(); i++) {
+                            pontoAzul.get(i).setVisible(false);
                         }
-
                     }
+
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException ex) {
+                        System.out.println("Erro: " + ex);
+                    }
+
                 }
-            };
-            tponto.start();
-        } else {
-            tponto.stop();
-        }
+            }
+        };
+        tponto.start();
     }
 
+    public void ativarPontoVerde(ArrayList<Cidade> rota){
+        tponto = new Thread() {
+            public void run() {
+                int x = 0;
+                while (true) {
+                    x++;
+                    if (x % 2 == 0) {
+                        for (int i = 0; i < rota.size(); i++) {
+                            frame.add(pontoVerde.get(i)).setBounds(rota.get(i).getX(), rota.get(i).getY(), 20, 20);
+                            pontoVerde.get(i).setVisible(true);
+                        }
+
+                    } else {
+                        for (int i = 0; i < rota.size(); i++) {
+                            pontoVerde.get(i).setVisible(false);
+                        }
+                    }
+
+                    try {
+                        Thread.sleep(200);
+                    } catch (InterruptedException ex) {
+                        System.out.println("Erro: " + ex);
+                    }
+
+                }
+            }
+        };
+        tponto.start();
+    }
+    
     public APP() {
 
         mapa = new Mapa();
@@ -185,6 +211,7 @@ public class APP implements ActionListener {
         pontoVerde = new ArrayList<>();
         for (int i = 0; i < 22; i++) {
             pontoAzul.add(new JLabel(new ImageIcon("src/Imagens/pontoAzul.png")));
+            pontoVerde.add(new JLabel(new ImageIcon("src/Imagens/pontoVerde.png")));
         }
 
         ArrayList<Cidade> c = new ArrayList<>();
@@ -250,19 +277,27 @@ public class APP implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(btlargura)) {
-            Largura l = new Largura(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
-                    PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
+            Cidade inicio =  PesquisaCidadeNome(cb_cidades.getSelectedItem().toString());
+            Cidade objetivo = PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString());
+            Largura l = new Largura(inicio, objetivo);
             cidades = new ArrayList<>();
             cidades = l.buscar01();
             ativarPonto(cidades);
-            l.MostraRota(cidades);
+            ArrayList<Cidade> CaminhoPercorrido = cidades;
+            CaminhoPercorrido = l.CaminhoPercorrido(inicio, objetivo);
+            ativarPontoVerde(CaminhoPercorrido);
+            JOptionPane.showMessageDialog(null, l.MostraRota(cidades), "Caminho Percorrido", JOptionPane.DEFAULT_OPTION);
         } else if (e.getSource().equals(btprofundidade)) {
-            Profundidade p = new Profundidade(PesquisaCidadeNome(cb_cidades.getSelectedItem().toString()),
-                    PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString()));
+            Cidade inicio = PesquisaCidadeNome(cb_cidades.getSelectedItem().toString());
+            Cidade objetivo = PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString());
+            Profundidade p = new Profundidade(inicio, objetivo);
             cidades = new ArrayList<>();
             cidades = p.buscar(cidades);
             ativarPonto(cidades);
-            MostraRota(cidades);
+            ArrayList<Cidade> CaminhoPercorrido = cidades;
+            CaminhoPercorrido = p.CaminhoPercorrido(inicio, objetivo);
+            ativarPontoVerde(CaminhoPercorrido);
+            JOptionPane.showMessageDialog(null, p.MostraRota(cidades), "Caminho Percorrido", JOptionPane.DEFAULT_OPTION);
         } else if (e.getSource().equals(cb_cidades)) {
             System.out.println(cb_cidades.getSelectedItem().toString());
             ArrayList<String> Nome_Cidades = new ArrayList<>();
@@ -300,15 +335,5 @@ public class APP implements ActionListener {
             }
         }
         return null;
-    }
-    
-    private void MostraRota(ArrayList<Cidade> array){
-        int size = array.size() - 1;
-        String rota = "";
-        for (int i = 0; i < size + 1 ; i++) {
-            Cidade c = array.get(size - i);
-            rota += (i+1) + "º\t " + c.getNome() + "\n";
-        }
-        JOptionPane.showMessageDialog(null, rota, "Caminho Percorrido", JOptionPane.DEFAULT_OPTION);
     }
 }
