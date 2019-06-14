@@ -54,6 +54,11 @@ public class Profundidade {
 
         Cidade cityDesempilhada = fronteira.desempilhar();
         System.out.println("Desempilhou: " + cityDesempilhada.getNome());
+//        if (cityDesempilhada == objetivo) {
+//            ArrayList<Cidade> a = new ArrayList<>();
+//            a.add(cityDesempilhada);
+//            return a;
+//        }
         return cidades;
     }
 

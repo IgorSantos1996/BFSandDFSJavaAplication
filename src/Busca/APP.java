@@ -14,6 +14,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.lang.reflect.Array;
+import java.net.URL;
 import java.util.ArrayList;
 
 public class APP implements ActionListener {
@@ -144,7 +145,9 @@ public class APP implements ActionListener {
 
         //back.setBackground(Color.ORANGE);
         back.setBounds(0, 0, 500, 600);
-
+        URL url = ClassLoader.getSystemResource("Imagens/800px-Petersen_graph_3-coloring.svg.png");
+        Image iconetitulo = Toolkit.getDefaultToolkit().getImage(url);
+        frame.setIconImage(iconetitulo);
 
         label03 = new JLabel(background);
         // setando o mapa de forma que o ponto vermelho possa sobrescrever o mapa
@@ -291,14 +294,14 @@ public class APP implements ActionListener {
         principal.frame.setVisible(true);
     }
 
-    public void DesativarPontoAzul(ArrayList<Cidade> cities){
+    public void DesativarPontoAzul(ArrayList<Cidade> cities) {
         for (int i = 0; i < cities.size(); i++) {
             frame.add(pontoAzul.get(i)).setBounds(cities.get(i).getX(), cities.get(i).getY(), 20, 20);
             pontoAzul.get(i).setVisible(false);
         }
     }
 
-    public void DesativarPontoVerde(ArrayList<Cidade> cities){
+    public void DesativarPontoVerde(ArrayList<Cidade> cities) {
         for (int i = 0; i < cities.size(); i++) {
             frame.add(pontoVerde.get(i)).setBounds(cities.get(i).getX(), cities.get(i).getY(), 20, 20);
             pontoVerde.get(i).setVisible(false);
@@ -392,16 +395,16 @@ public class APP implements ActionListener {
         tVerde.suspend();
         DesativarPontoVerde(CaminhoPercorrido);
 
-        for (Cidade c : cidades){
+        for (Cidade c : cidades) {
             c.setVisitado(false);
-            for (Adjacente a : c.getAdjacentes()){
+            for (Adjacente a : c.getAdjacentes()) {
                 a.getCidade().setVisitado(false);
             }
         }
 
-        for (Cidade c : CaminhoPercorrido){
+        for (Cidade c : CaminhoPercorrido) {
             c.setVisitado(false);
-            for (Adjacente a : c.getAdjacentes()){
+            for (Adjacente a : c.getAdjacentes()) {
                 a.getCidade().setVisitado(false);
             }
         }

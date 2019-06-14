@@ -7,16 +7,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="76a191ab-0a41-4084-a20f-a2ed9750c4e6" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/artifacts/TrabalhoIA_jar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Busca/APP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Busca/APP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Busca/Largura.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Busca/Largura.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Busca/Profundidade.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Busca/Profundidade.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ED/Pilha.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ED/Pilha.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GerarPDF/GerarPdf.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GerarPDF/GerarPdf.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Grafo/Mapa.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Grafo/Mapa.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TelaBoasVindas/BoasVindas.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TelaBoasVindas/BoasVindas.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TelaCreditos/Creditos.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TelaCreditos/Creditos.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Imagens/Icone.png" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -27,28 +23,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Busca/APP.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="914">
-              <caret line="337" column="23" selection-start-line="337" selection-start-column="23" selection-end-line="337" selection-end-column="23" />
-              <folding>
-                <element signature="e#1384#2372#0" />
-                <element signature="e#2378#3375#0" />
-                <element signature="e#3381#4489#0" />
-                <element signature="e#4495#9677#0" />
-                <element signature="e#10398#10672#0" />
-                <element signature="e#10678#10955#0" />
-              </folding>
+            <state relative-caret-position="361">
+              <caret line="147" column="96" selection-start-line="147" selection-start-column="96" selection-end-line="147" selection-end-column="96" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Busca/Profundidade.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="227">
-              <caret line="70" column="53" lean-forward="true" selection-start-line="70" selection-start-column="53" selection-end-line="70" selection-end-column="53" />
+            <state relative-caret-position="2090">
+              <caret line="95" column="3" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -57,12 +45,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Grafo/Mapa.java">
+        <entry file="file://$PROJECT_DIR$/src/ED/Pilha.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="53">
-              <caret line="230" column="58" selection-start-line="230" selection-start-column="58" selection-end-line="230" selection-end-column="58" />
+            <state relative-caret-position="506">
+              <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="e#555#603#1" />
+                <element signature="e#738#739#0" expanded="true" />
+                <element signature="e#774#775#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -120,8 +111,8 @@
         <option value="$PROJECT_DIR$/src/GerarPDF/GerarPdf.java" />
         <option value="$PROJECT_DIR$/src/TelaCreditos/Creditos.java" />
         <option value="$PROJECT_DIR$/src/Busca/Largura.java" />
-        <option value="$PROJECT_DIR$/src/ED/Pilha.java" />
         <option value="$PROJECT_DIR$/src/Grafo/Mapa.java" />
+        <option value="$PROJECT_DIR$/src/ED/Pilha.java" />
         <option value="$PROJECT_DIR$/src/Busca/Profundidade.java" />
         <option value="$PROJECT_DIR$/src/Busca/APP.java" />
       </list>
@@ -154,7 +145,7 @@
               <item name="BuscasIA" type="b2602c69:ProjectViewProjectNode" />
               <item name="BuscasIA" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Grafo" type="462c0819:PsiDirectoryNode" />
+              <item name="Imagens" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -283,7 +274,8 @@
       <workItem from="1560434491846" duration="3032000" />
       <workItem from="1560455084856" duration="18535000" />
       <workItem from="1560476064413" duration="18000" />
-      <workItem from="1560476101705" duration="11049000" />
+      <workItem from="1560476101705" duration="12809000" />
+      <workItem from="1560489034630" duration="919000" />
     </task>
     <task id="LOCAL-00001" summary="Busca em profundidade funcionando.">
       <created>1557875788121</created>
@@ -296,20 +288,20 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="175086000" />
+    <option name="totallyTimeSpent" value="177765000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.2712766" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.12934947" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Designer" order="2" />
       <window_info id="UI Designer" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.13747954" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.055646483" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.30769232" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -499,21 +491,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/ED/Pilha.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="27" column="23" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="23" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#555#603#1" />
-            <element signature="e#738#739#0" expanded="true" />
-            <element signature="e#774#775#0" expanded="true" />
-            <element signature="e#810#811#0" expanded="true" />
-            <element signature="e#845#846#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Grafo/Adjacente.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="198">
@@ -536,25 +513,30 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Busca/APP.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="914">
-          <caret line="337" column="23" selection-start-line="337" selection-start-column="23" selection-end-line="337" selection-end-column="23" />
-          <folding>
-            <element signature="e#1384#2372#0" />
-            <element signature="e#2378#3375#0" />
-            <element signature="e#3381#4489#0" />
-            <element signature="e#4495#9677#0" />
-            <element signature="e#10398#10672#0" />
-            <element signature="e#10678#10955#0" />
-          </folding>
+        <state relative-caret-position="361">
+          <caret line="147" column="96" selection-start-line="147" selection-start-column="96" selection-end-line="147" selection-end-column="96" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Busca/Profundidade.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="70" column="53" lean-forward="true" selection-start-line="70" selection-start-column="53" selection-end-line="70" selection-end-column="53" />
+        <state relative-caret-position="2090">
+          <caret line="95" column="3" selection-start-line="95" selection-start-column="3" selection-end-line="95" selection-end-column="3" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ED/Pilha.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="506">
+          <caret line="23" column="9" selection-start-line="23" selection-start-column="9" selection-end-line="23" selection-end-column="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#555#603#1" />
+            <element signature="e#738#739#0" expanded="true" />
+            <element signature="e#774#775#0" expanded="true" />
           </folding>
         </state>
       </provider>
