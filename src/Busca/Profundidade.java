@@ -26,7 +26,7 @@ public class Profundidade {
         achou = false;
     }
 
-    public ArrayList<Cidade> buscar(ArrayList<Cidade> cidades) {
+    public ArrayList<Cidade> buscaEmProfundidade(ArrayList<Cidade> cidades) {
 
         Cidade topo = fronteira.getTopo();
         System.out.println("Topo: " + topo.getNome());
@@ -43,7 +43,7 @@ public class Profundidade {
                             a.getCidade().setVisitado(true);
                             fronteira.empilhar(a.getCidade());
                             a.getCidade().setCidadePai(topo);
-                            buscar(cidades);
+                            buscaEmProfundidade(cidades);
                         }
                     }
                 }
@@ -71,12 +71,12 @@ public class Profundidade {
         for (int i = array.size() - 1; i > -1; i--) {
             Cidade c = array.get(i);
             rota += "  " + index + "º " + c.getNome();
-            if(cont == 5){
+            if (cont == 5) {
                 cont = 0;
                 rota += "\n";
             }
             cont++;
-            index ++;
+            index++;
         }
         return rota;
     }

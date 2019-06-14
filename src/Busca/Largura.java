@@ -30,7 +30,7 @@ public class Largura {
         achou = false;
     }
 
-    public ArrayList<Cidade> buscar01() {
+    public ArrayList<Cidade> buscaLargura() {
         ArrayList<Cidade> array = new ArrayList<>();
 
         array.add(inicio);

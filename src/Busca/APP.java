@@ -323,7 +323,7 @@ public class APP implements ActionListener {
             Largura l = new Largura(inicio, objetivo);
             cidades = new ArrayList<>();
             CaminhoPercorrido = new ArrayList<>();
-            cidades = l.buscar01();
+            cidades = l.buscaLargura();
             ativarPonto(cidades);
             CaminhoPercorrido = cidades;
             CaminhoPercorrido = l.CaminhoPercorrido(inicio, objetivo);
@@ -339,7 +339,7 @@ public class APP implements ActionListener {
             Profundidade p = new Profundidade(inicio, objetivo);
             cidades = new ArrayList<>();
             CaminhoPercorrido = new ArrayList<>();
-            cidades = p.buscar(cidades);
+            cidades = p.buscaEmProfundidade(cidades);
             ativarPonto(cidades);
             CaminhoPercorrido = cidades;
             CaminhoPercorrido = p.CaminhoPercorrido(inicio, objetivo);
