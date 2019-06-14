@@ -13,6 +13,7 @@ import javax.swing.UIManager.LookAndFeelInfo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 import java.lang.reflect.Array;
 import java.net.URL;
 import java.util.ArrayList;
@@ -327,6 +328,8 @@ public class APP implements ActionListener {
             CaminhoPercorrido = cidades;
             CaminhoPercorrido = l.CaminhoPercorrido(inicio, objetivo);
             ativarPontoVerde(CaminhoPercorrido);
+            btlargura.setEnabled(false);
+            btprofundidade.setEnabled(false);
             JOptionPane.showMessageDialog(null, l.MostraRota(cidades), "Caminho Percorrido", JOptionPane.DEFAULT_OPTION);
             maisConsultas = true;
         } else if (e.getSource().equals(btprofundidade)) {
@@ -341,6 +344,9 @@ public class APP implements ActionListener {
             CaminhoPercorrido = cidades;
             CaminhoPercorrido = p.CaminhoPercorrido(inicio, objetivo);
             ativarPontoVerde(CaminhoPercorrido);
+            btprofundidade.setEnabled(false);
+            btlargura.setEnabled(false);
+
             JOptionPane.showMessageDialog(null, p.MostraRota(cidades), "Caminho Percorrido", JOptionPane.DEFAULT_OPTION);
         } else if (e.getSource().equals(cb_cidades)) {
             System.out.println(cb_cidades.getSelectedItem().toString());
@@ -359,9 +365,27 @@ public class APP implements ActionListener {
         } else if (e.getSource().equals(miAdjacencias)) {
             new telaMatriz().setVisible(true);
         } else if (e.getSource().equals(miCodigoFonte)) {
-            String[] opcao = {"fechar"};
-            JOptionPane.
-                    showOptionDialog(null, "Funcionalidade a ser implementada\nDisponibilizaremos em breve ! :D", "Consultar codigo Fonte", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opcao, opcao[0]);
+
+            ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("Imagens/github.png"));
+            //Image iconetitulo = Toolkit.getDefaultToolkit().getImage(url);
+            String[] opcao = {"Acessar", "fechar"};
+           Integer a = JOptionPane.
+                    showOptionDialog(null,
+                            "Clique para acessar o repositorio",
+                           "Consultar codigo Fonte", JOptionPane.DEFAULT_OPTION , JOptionPane.WARNING_MESSAGE,
+                           img, opcao, opcao[0]);
+            System.out.println(a);
+           if(a==0) {
+               String url = "https://github.com/IgorSantos1996/BuscasIA";
+
+               try {
+                   Desktop.getDesktop().browse(java.net.URI.create(url));
+               } catch (IOException ex) {
+                   ex.printStackTrace();
+               }
+           }
+
+
             Toolkit.getDefaultToolkit().beep();
         } else if (e.getSource().equals(miGerarPDFLargura)) {
             Cidade inicio = PesquisaCidadeNome(cb_cidades.getSelectedItem().toString());
@@ -384,6 +408,10 @@ public class APP implements ActionListener {
         } else if (e.getSource().equals(miAutores)) {
             new Creditos();
         } else if (e.getSource().equals(novaBusca)) {
+            btlargura.setEnabled(true);
+            btprofundidade.setEnabled(true);
+            miGerarPDFLargura.setEnabled(false);
+            miGerarPDFProfundidade.setEnabled(false);
             resetar();
         }
     }

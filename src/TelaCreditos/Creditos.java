@@ -7,6 +7,7 @@ public class Creditos extends JFrame {
 
     public Creditos() {
 
+        ImageIcon img = new ImageIcon(ClassLoader.getSystemResource("Imagens/ufs.png"));
         String[] opcao = {"OK"};
         JOptionPane.showOptionDialog(null,
                 "Universidade Federal de Sergipe\n" +
@@ -19,7 +20,7 @@ public class Creditos extends JFrame {
                         " Igor Terriaga Santos\n" +
                         " Joan Vitor Mendonça de Jesus\n",
                 "Sobre", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
-                null, opcao, opcao[0]);
+                img, opcao, opcao[0]);
 
         Toolkit.getDefaultToolkit().beep();
 
