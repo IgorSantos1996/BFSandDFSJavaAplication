@@ -4,6 +4,7 @@ import ED.Fila;
 import Grafo.Adjacente;
 import Grafo.Cidade;
 import Grafo.Mapa;
+
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -23,7 +24,7 @@ public class Largura {
         this.objetivo = objetivo;
         //this.mapa = mapa;
 
-        fronteira = new Fila(20);
+        fronteira = new Fila(21);
         fronteira.enfileirar(inicio);
         ultima = inicio;
         achou = false;
@@ -31,9 +32,9 @@ public class Largura {
 
     public ArrayList<Cidade> buscar01() {
         ArrayList<Cidade> array = new ArrayList<>();
-        
+
         array.add(inicio);
-        
+
         do {
             Cidade primeiro = fronteira.getPrimeiro();
             primeiro.setVisitado(true);
@@ -42,10 +43,10 @@ public class Largura {
             for (Adjacente a : primeiro.getAdjacentes()) {
                 if (a.getCidade().getNome().equals(objetivo.getNome())) {
                     System.out.println("Goal State: " + objetivo.getNome());
-                    
+
                     a.getCidade().setCidadePai(primeiro);
                     array.add(a.getCidade());
-                    
+
                     //array = CaminhoPercorrido(inicio, objetivo);
                     return array;
                 } else {
@@ -53,7 +54,7 @@ public class Largura {
                         a.getCidade().setCidadePai(primeiro);
                         a.getCidade().setVisitado(true);
                         fronteira.enfileirar(a.getCidade());
-                        
+
                         array.add(a.getCidade());
                     }
                 }
@@ -61,7 +62,7 @@ public class Largura {
             //primeiro.setVisitado(true);
             //fronteira.desenfileirar();
         } while (!fronteira.getPrimeiro().equals(objetivo.getNome()));
-        
+
         return null;
     }
 
@@ -101,35 +102,35 @@ public class Largura {
         }
         return null;
     }
-    
+
     // Mostra o caminhamento da busca como do caminho a ser seguido
-    public String MostraRota(ArrayList<Cidade> array){
+    public String MostraRota(ArrayList<Cidade> array) {
         int size = array.size() - 1;
-        String rota = "Caminhamento da Busca em Largura: (PONTOS AZUIS') \n";
-        for (int i = 0; i < size + 1 ; i++) {
+        String rota = "Caminhamento da Busca em Largura: (PONTOS AZUIS) \n";
+        for (int i = 0; i < size + 1; i++) {
             Cidade c = array.get(i);
-            rota += "  " + (i+1) + "º " + c.getNome() + "\n";
+            rota += "  " + (i + 1) + "º " + c.getNome() + "\n";
         }
-        
+
         array = CaminhoPercorrido(inicio, objetivo);
         rota += "\nRota a ser seguida: (PONTOS VERDES)\n";
         int cont = 1;
-        for (int i = array.size() - 1 ; i > -1 ; i--) {
+        for (int i = array.size() - 1; i > -1; i--) {
             Cidade c = array.get(i);
             rota += "  " + cont + "º " + c.getNome() + "\n";
-            cont ++;
+            cont++;
         }
         return rota;
     }
-    
+
     // caminhamento dos pais
-    public ArrayList<Cidade> CaminhoPercorrido(Cidade inicio, Cidade objetivo){
+    public ArrayList<Cidade> CaminhoPercorrido(Cidade inicio, Cidade objetivo) {
         ArrayList<Cidade> cidades = new ArrayList<>();
         cidades.add(objetivo);
-        while( ! objetivo.getCidadePai().getNome().equals(inicio.getNome())){
+        while (!objetivo.getCidadePai().getNome().equals(inicio.getNome())) {
             objetivo = objetivo.getCidadePai();
-            
-            if(!cidades.contains(objetivo))
+
+            if (!cidades.contains(objetivo))
                 cidades.add(objetivo);
         }
         cidades.add(inicio);

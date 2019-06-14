@@ -4,6 +4,8 @@ import ED.Pilha;
 import Grafo.Adjacente;
 import Grafo.Cidade;
 import Grafo.Mapa;
+
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 
@@ -19,44 +21,50 @@ public class Profundidade {
         this.inicio.setVisitado(true);
         this.objetivo = objetivo;
 
-        fronteira = new Pilha(20);
+        fronteira = new Pilha(21);
         fronteira.empilhar(inicio);
         achou = false;
     }
 
     public ArrayList<Cidade> buscar(ArrayList<Cidade> cidades) {
+
         Cidade topo = fronteira.getTopo();
         System.out.println("Topo: " + topo.getNome());
+        cidades.add(topo);
 
         if (topo.equals(objetivo)) {
             achou = true;
+
         } else {
-            for (Adjacente a : topo.getAdjacentes()) {
-                a.getCidade().setCidadePai(topo);
-                if (!achou) {
-                    System.out.println("Verificando se já visitado: " + a.getCidade().getNome());
-                    if (a.getCidade().isVisitado() == false) {
-                        a.getCidade().setVisitado(true);
-                        fronteira.empilhar(a.getCidade());
-                        buscar(cidades);
+            if (achou == false) {
+                for (Adjacente a : topo.getAdjacentes()) {
+                    a.getCidade().setCidadePai(topo);
+                    if (!achou) {
+                        System.out.println("Verificando se já visitado: " + a.getCidade().getNome());
+                        if (a.getCidade().isVisitado() == false) {
+                            a.getCidade().setVisitado(true);
+                            fronteira.empilhar(a.getCidade());
+                            buscar(cidades);
+                        }
                     }
                 }
             }
+
         }
+
         Cidade cityDesempilhada = fronteira.desempilhar();
-        cidades.add(cityDesempilhada);
         System.out.println("Desempilhou: " + cityDesempilhada.getNome());
         return cidades;
     }
 
-    public String MostraRota(ArrayList<Cidade> array){
+    public String MostraRota(ArrayList<Cidade> array) {
         int size = array.size() - 1;
         String rota = "Caminhamento da Busca em Profundidade: (PONTOS AZUIS)\n";
-        for (int i = 0; i < size + 1 ; i++) {
+        for (int i = 0; i < size + 1; i++) {
             Cidade c = array.get(size - i);
-            rota += "  " + (i+1) + "º\t " + c.getNome() + "\n";
+            rota += "  " + (size - i + 1) + "º\t " + c.getNome() + "\n";
         }
-        
+
         array = CaminhoPercorrido(inicio, objetivo);
         rota += "\nRota a ser seguida: (PONTOS VERDES)\n";
         int cont = 1;
@@ -67,7 +75,7 @@ public class Profundidade {
         }
         return rota;
     }
-    
+
     // caminhamento dos pais
     public ArrayList<Cidade> CaminhoPercorrido(Cidade inicio, Cidade objetivo) {
         ArrayList<Cidade> cidades = new ArrayList<>();

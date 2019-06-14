@@ -5,25 +5,22 @@ import com.itextpdf.text.pdf.PdfWriter;
 
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
-import java.io.IOException;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
-
-import Busca.APP;
 
 public class GerarPdf {
     Document document = null;
 
-    public GerarPdf(String a) {
-        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy");
+    public GerarPdf(String a, String TipoBusca) {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");
         Object data = sdf.format(new Date());
-
+        System.out.println(data);
         try {
             document = new Document(
                     PageSize.A4, 50, 50, 50, 50);
 
-            PdfWriter writer = PdfWriter.getInstance(document, new FileOutputStream(data + ".pdf"));
+            PdfWriter writer = PdfWriter
+                    .getInstance(document, new FileOutputStream( "Busca em " + TipoBusca + data + ".pdf"));
 
             document.open();
             Font f = new Font(com.itextpdf.text.Font.FontFamily.COURIER, 20, Font.BOLD);

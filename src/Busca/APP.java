@@ -1,35 +1,32 @@
 package Busca;
 
 import GerarPDF.GerarPdf;
+import Grafo.Adjacente;
 import Grafo.Cidade;
 import Grafo.Mapa;
-import TelaMatriz.*;
-import TelaCreditos.Creditos;
 import TelaBoasVindas.BoasVindas;
-import Busca.Profundidade;
-import Busca.Largura;
+import TelaCreditos.Creditos;
+import TelaMatriz.telaMatriz;
 
 import javax.swing.*;
 import javax.swing.UIManager.LookAndFeelInfo;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.net.URL;
-import java.awt.image.*;
-import javax.swing.ImageIcon;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class APP implements ActionListener {
-
-    //private JPanel painel = null;
     private JLabel label;
     private JLabel label02;
     private JLabel label03;
     private JMenuBar mnBarra;
     private JMenu mnConsultar, mnSalvar, mnSobre;
+    private int contador = 0;
 
+    private boolean maisConsultas = false;
 
-    private JMenuItem miSair, miBotao, miAdjacencias, miCodigoFonte, miSalvarPdf, miAutores;
+    private JMenuItem miSair, miBotao, miAdjacencias, miCodigoFonte, miAutores, miGerarPDFLargura, miGerarPDFProfundidade;
     private JButton btlargura;
     private JButton btprofundidade;
     private JFrame frame;
@@ -39,14 +36,16 @@ public class APP implements ActionListener {
     private Image iconeTitulo;
     private Mapa mapa;
     private ArrayList<Cidade> cidades;
+    private ArrayList<Cidade> CaminhoPercorrido;
 
     // Componentes para colocar o ponto azul na tela
-    Thread tponto;
+    Thread tAzul;
+    Thread tVerde;
     private ArrayList<JLabel> pontoAzul;
     private ArrayList<JLabel> pontoVerde;
 
     public void ativarPonto(ArrayList<Cidade> rota) {
-        tponto = new Thread() {
+        tAzul = new Thread() {
             public void run() {
                 int x = 0;
                 while (true) {
@@ -72,11 +71,11 @@ public class APP implements ActionListener {
                 }
             }
         };
-        tponto.start();
+        tAzul.start();
     }
 
     public void ativarPontoVerde(ArrayList<Cidade> rota) {
-        tponto = new Thread() {
+        tVerde = new Thread() {
             public void run() {
                 int x = 0;
                 while (true) {
@@ -102,7 +101,7 @@ public class APP implements ActionListener {
                 }
             }
         };
-        tponto.start();
+        tVerde.start();
     }
 
     public APP() {
@@ -117,7 +116,8 @@ public class APP implements ActionListener {
         miSair = new JMenuItem("Sair");
         miAdjacencias = new JMenuItem("Matris de Adjacencias");
         miCodigoFonte = new JMenuItem("Consultar código fonte");
-        miSalvarPdf = new JMenuItem("Salvar como PDF");
+        miGerarPDFLargura = new JMenuItem("Gerar PDF da Busca em largura");
+        miGerarPDFProfundidade = new JMenuItem("Gerar PDF da Busca em profundidade");
         miBotao = new JMenuItem("Botao");
         miAutores = new JMenuItem("Info autores");
         btlargura = new JButton("Largura");
@@ -134,8 +134,7 @@ public class APP implements ActionListener {
     }
 
     private void inicializarComponentes() {
-
-        ImageIcon background = new ImageIcon("src/Imagens/MAPA-800x600.png");
+        ImageIcon background = new ImageIcon(ClassLoader.getSystemResource("Imagens/MAPA-800x600.png"));
         Image img = background.getImage();
 
         Image temp = img.getScaledInstance(800, 600, Image.SCALE_SMOOTH);
@@ -156,7 +155,8 @@ public class APP implements ActionListener {
         miCodigoFonte.addActionListener(this);
         miSair.addActionListener(this);
         miBotao.addActionListener(this);
-        miSalvarPdf.addActionListener(this);
+        miGerarPDFLargura.addActionListener(this);
+        miGerarPDFProfundidade.addActionListener(this);
         miAutores.addActionListener(this);
         btlargura.addActionListener(this);
         btprofundidade.addActionListener(this);
@@ -172,7 +172,8 @@ public class APP implements ActionListener {
         mnBarra.add(mnConsultar);
         mnBarra.add(mnSalvar);
         mnBarra.add(mnSobre);
-        mnSalvar.add(miSalvarPdf);
+        mnSalvar.add(miGerarPDFLargura);
+        mnSalvar.add(miGerarPDFProfundidade);
         mnConsultar.add(miSair);
         mnConsultar.add(miAdjacencias);
         mnConsultar.add(miCodigoFonte);
@@ -197,6 +198,9 @@ public class APP implements ActionListener {
         // frame.add(label03);
         frame.add(novaBusca);
 
+        miGerarPDFProfundidade.setEnabled(false);
+        miGerarPDFLargura.setEnabled(false);
+
         novaBusca.setBounds(100, 500, 150, 30);
         btlargura.setBounds(650, 40, 150, 30);
         btprofundidade.setBounds(650, 100, 150, 30);
@@ -218,8 +222,8 @@ public class APP implements ActionListener {
          * arrayList de labels e outro arrayList com a lista das cidades
          * selecionadas *
          */
-        /*Adicionado a quantidade de pontos correspondes a quantodade de ciades (ficticio ate agora)*/
 
+        /*Adicionado a quantidade de pontos correspondes a quantodade de ciades (ficticio ate agora)*/
         pontoAzul = new ArrayList<>();
         pontoVerde = new ArrayList<>();
         for (int i = 0; i < 22; i++) {
@@ -279,35 +283,59 @@ public class APP implements ActionListener {
             e.printStackTrace();
         }
 
-        BoasVindas b = new BoasVindas(4000);
-        b.showSplashAndExit();
+        //BoasVindas b = new BoasVindas(4000);
+        //b.showSplashAndExit();
 
         APP principal = new APP();
 
         principal.frame.setVisible(true);
     }
 
+    public void DesativarPontoAzul(ArrayList<Cidade> cities){
+        for (int i = 0; i < cities.size(); i++) {
+            frame.add(pontoAzul.get(i)).setBounds(cities.get(i).getX(), cities.get(i).getY(), 20, 20);
+            pontoAzul.get(i).setVisible(false);
+        }
+    }
+
+    public void DesativarPontoVerde(ArrayList<Cidade> cities){
+        for (int i = 0; i < cities.size(); i++) {
+            frame.add(pontoVerde.get(i)).setBounds(cities.get(i).getX(), cities.get(i).getY(), 20, 20);
+            pontoVerde.get(i).setVisible(false);
+        }
+    }
+
     @Override
     public void actionPerformed(ActionEvent e) {
         if (e.getSource().equals(btlargura)) {
+//            if(maisConsultas == true){
+//                tponto.suspend();
+//                DesativarPontoAzul(cidades);
+//                DesativarPontoVerde(CaminhoPercorrido);
+//            }
+            miGerarPDFLargura.setEnabled(true);
             Cidade inicio = PesquisaCidadeNome(cb_cidades.getSelectedItem().toString());
             Cidade objetivo = PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString());
             Largura l = new Largura(inicio, objetivo);
             cidades = new ArrayList<>();
+            CaminhoPercorrido = new ArrayList<>();
             cidades = l.buscar01();
             ativarPonto(cidades);
-            ArrayList<Cidade> CaminhoPercorrido = cidades;
+            CaminhoPercorrido = cidades;
             CaminhoPercorrido = l.CaminhoPercorrido(inicio, objetivo);
             ativarPontoVerde(CaminhoPercorrido);
             JOptionPane.showMessageDialog(null, l.MostraRota(cidades), "Caminho Percorrido", JOptionPane.DEFAULT_OPTION);
+            maisConsultas = true;
         } else if (e.getSource().equals(btprofundidade)) {
+            miGerarPDFProfundidade.setEnabled(true);
             Cidade inicio = PesquisaCidadeNome(cb_cidades.getSelectedItem().toString());
             Cidade objetivo = PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString());
             Profundidade p = new Profundidade(inicio, objetivo);
             cidades = new ArrayList<>();
+            CaminhoPercorrido = new ArrayList<>();
             cidades = p.buscar(cidades);
             ativarPonto(cidades);
-            ArrayList<Cidade> CaminhoPercorrido = cidades;
+            CaminhoPercorrido = cidades;
             CaminhoPercorrido = p.CaminhoPercorrido(inicio, objetivo);
             ativarPontoVerde(CaminhoPercorrido);
             JOptionPane.showMessageDialog(null, p.MostraRota(cidades), "Caminho Percorrido", JOptionPane.DEFAULT_OPTION);
@@ -329,26 +357,54 @@ public class APP implements ActionListener {
             new telaMatriz().setVisible(true);
         } else if (e.getSource().equals(miCodigoFonte)) {
             String[] opcao = {"fechar"};
-            JOptionPane.showOptionDialog(null, "Funcionalidade a ser implementada", "Consultar codigo Fonte", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opcao, opcao[0]);
+            JOptionPane.
+                    showOptionDialog(null, "Funcionalidade a ser implementada\nDisponibilizaremos em breve ! :D", "Consultar codigo Fonte", JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null, opcao, opcao[0]);
             Toolkit.getDefaultToolkit().beep();
-        } else if (e.getSource().equals(miSalvarPdf)) {
+        } else if (e.getSource().equals(miGerarPDFLargura)) {
             Cidade inicio = PesquisaCidadeNome(cb_cidades.getSelectedItem().toString());
             Cidade objetivo = PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString());
             Largura l = new Largura(inicio, objetivo);
-            cidades = new ArrayList<>();
-            cidades = l.buscar01();
-            GerarPdf pdf = new GerarPdf(l.MostraRota(cidades));
+
+            String rota = l.MostraRota(cidades);
+
+            GerarPdf pdf = new GerarPdf(rota, "Largura");
+        } else if (e.getSource().equals(miGerarPDFProfundidade)) {
+            Cidade inicio = PesquisaCidadeNome(cb_cidades.getSelectedItem().toString());
+            Cidade objetivo = PesquisaCidadeNome(cb_cidades02.getSelectedItem().toString());
+
+            Profundidade p = new Profundidade(inicio, objetivo);
+
+            //É aqui onde a porca torceu o rabo, mas não torce mais KKKKKKKKKKKKKK
+            String rota = p.MostraRota(cidades);
+
+            GerarPdf pdf = new GerarPdf(rota, "Profundidade");
         } else if (e.getSource().equals(miAutores)) {
             new Creditos();
         } else if (e.getSource().equals(novaBusca)) {
-            fechar();
+            resetar();
         }
     }
 
-    public void fechar() {
-        frame.dispose();
-        APP.main(null);
+    // metodo para resetar a consulta
+    public void resetar() {
+        tAzul.suspend();
+        DesativarPontoAzul(cidades);
+        tVerde.suspend();
+        DesativarPontoVerde(CaminhoPercorrido);
 
+        for (Cidade c : cidades){
+            c.setVisitado(false);
+            for (Adjacente a : c.getAdjacentes()){
+                a.getCidade().setVisitado(false);
+            }
+        }
+
+        for (Cidade c : CaminhoPercorrido){
+            c.setVisitado(false);
+            for (Adjacente a : c.getAdjacentes()){
+                a.getCidade().setVisitado(false);
+            }
+        }
     }
 
     private Cidade PesquisaCidadeNome(String nome) {

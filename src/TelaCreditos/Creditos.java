@@ -9,10 +9,15 @@ public class Creditos extends JFrame {
 
         String[] opcao = {"OK"};
         JOptionPane.showOptionDialog(null,
-                "Universidade Federal de Sergipe\n " +
-                        "Docente: Dr. Alcides Xavier Benicasa\n " +
+                "Universidade Federal de Sergipe\n" +
+                        "Departamento de Sistemas de Informação - DSI\n" +
+                        "Docente: Dr. Alcides Xavier Benicasa\n" +
                         "Disciplina: Inteligência Artificial\n" +
-                        "Discentes: Bruno Santana, Clovijan, Igor Terriaga e Joan Vitor\n",
+                        "Discentes:" +
+                        "\n Bruno Santana Santos\n" +
+                        " Clovijan Bispo Rocha\n" +
+                        " Igor Terriaga Santos\n" +
+                        " Joan Vitor Mendonça de Jesus\n",
                 "Sobre", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE,
                 null, opcao, opcao[0]);
 

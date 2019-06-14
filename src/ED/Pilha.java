@@ -38,7 +38,7 @@ public class Pilha {
         return cidades[topo];
     }
 
-    private boolean pilhaVazia() {
+    public boolean pilhaVazia() {
         return (topo == -1);
     }
 

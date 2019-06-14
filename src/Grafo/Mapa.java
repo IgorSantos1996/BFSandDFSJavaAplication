@@ -43,15 +43,15 @@ public class Mapa {
          Macambira = new Cidade("Macambira",390,330);
          Malhador = new Cidade("Malhador",600,335);
          Nossa_Senhora_aparecida = new Cidade("Nossa Senhora de Aparecida",470,190);
-         Nossa_Senhora_da_Gloria = new Cidade("Nossa Senhora da Glória",460,90);
+         Nossa_Senhora_da_Gloria = new Cidade("Nossa Senhora da Gloria",460,90);
          Nossa_Senhora_das_Dores = new Cidade("Nossa Senhora das Dores",630,250);
          Nossa_Senhora_do_Socorro = new Cidade("Nossa Senhora do Socorro",690,440);
          Pedra_Mole = new Cidade("Pedra Mole",335,305);
          Pinhao = new Cidade("Pinhao",285,280);
          Riachuelo = new Cidade("Riachuelo",635,365);
          Ribeiropolis = new Cidade("Ribeiropolis",500,250);
-         Sao_Cristovao = new Cidade("São Cristovão",645,480);
-         Sao_Domingos = new Cidade("São Domingos",415,400);
+         Sao_Cristovao = new Cidade("Sao Cristovao",645,480);
+         Sao_Domingos = new Cidade("Sao Domingos",415,400);
          Carira = new Cidade("Carira",315,205);
          Areia_Branca = new Cidade("Areia Branca",570,390);
          Aracaju = new Cidade("Aracaju",720,500);
@@ -83,10 +83,10 @@ public class Mapa {
 
         /* Adj de Itabaiana */
         Itabaiana.addCidadeAdjacente(new Adjacente(Areia_Branca));
-        Itabaiana.addCidadeAdjacente(new Adjacente(Frei_Paulo));
         Itabaiana.addCidadeAdjacente(new Adjacente(Moita_Bonita));
-        Itabaiana.addCidadeAdjacente(new Adjacente(Macambira));
         Itabaiana.addCidadeAdjacente(new Adjacente(Ribeiropolis));
+        Itabaiana.addCidadeAdjacente(new Adjacente(Frei_Paulo));
+        Itabaiana.addCidadeAdjacente(new Adjacente(Macambira));
         Itabaiana.addCidadeAdjacente(new Adjacente(Malhador));
         Itabaiana.addCidadeAdjacente(new Adjacente(Campo_do_Brito));
 
@@ -173,9 +173,9 @@ public class Mapa {
         Pedra_Mole.addCidadeAdjacente(new Adjacente(Simao_Dias));
 
         /*Adj de Pinhao */
+        Pinhao.addCidadeAdjacente(new Adjacente(Lagarto));
         Pinhao.addCidadeAdjacente(new Adjacente(Simao_Dias));
         Pinhao.addCidadeAdjacente(new Adjacente(Frei_Paulo));
-        Pinhao.addCidadeAdjacente(new Adjacente(Lagarto));
         Pinhao.addCidadeAdjacente(new Adjacente(Macambira));
         Pinhao.addCidadeAdjacente(new Adjacente(Nossa_Senhora_aparecida));
         Pinhao.addCidadeAdjacente(new Adjacente(Nossa_Senhora_da_Gloria));
@@ -192,14 +192,14 @@ public class Mapa {
         /*Adj de Ribeiropoles*/
         Ribeiropolis.addCidadeAdjacente(new Adjacente(Itabaiana));
         Ribeiropolis.addCidadeAdjacente(new Adjacente(Frei_Paulo));
-        Ribeiropolis.addCidadeAdjacente(new Adjacente(Moita_Bonita));
+        Ribeiropolis.addCidadeAdjacente(new Adjacente(Carira));
         Ribeiropolis.addCidadeAdjacente(new Adjacente(Macambira));
         Ribeiropolis.addCidadeAdjacente(new Adjacente(Nossa_Senhora_aparecida));
         Ribeiropolis.addCidadeAdjacente(new Adjacente(Nossa_Senhora_da_Gloria));
         Ribeiropolis.addCidadeAdjacente(new Adjacente(Nossa_Senhora_das_Dores));
         Ribeiropolis.addCidadeAdjacente(new Adjacente(Pedra_Mole));
         Ribeiropolis.addCidadeAdjacente(new Adjacente(Pinhao));
-        Ribeiropolis.addCidadeAdjacente(new Adjacente(Carira));
+        Ribeiropolis.addCidadeAdjacente(new Adjacente(Moita_Bonita));
 
         /*Adj de São Cristovao*/
         Sao_Cristovao.addCidadeAdjacente(new Adjacente(Laranjeiras));
@@ -227,24 +227,24 @@ public class Mapa {
 
         /*Adj de Areia Branca*/
         Areia_Branca.addCidadeAdjacente(new Adjacente(Itabaiana));
+        Areia_Branca.addCidadeAdjacente(new Adjacente(Campo_do_Brito));
         Areia_Branca.addCidadeAdjacente(new Adjacente(Aracaju));
         Areia_Branca.addCidadeAdjacente(new Adjacente(Laranjeiras));
+        Areia_Branca.addCidadeAdjacente(new Adjacente(Sao_Cristovao));
         Areia_Branca.addCidadeAdjacente(new Adjacente(Malhador));
         Areia_Branca.addCidadeAdjacente(new Adjacente(Riachuelo));
-        Areia_Branca.addCidadeAdjacente(new Adjacente(Sao_Cristovao));
-        Areia_Branca.addCidadeAdjacente(new Adjacente(Campo_do_Brito));
 
         /*Adj de Simao Dias*/
+        Simao_Dias.addCidadeAdjacente(new Adjacente(Pinhao));
         Simao_Dias.addCidadeAdjacente(new Adjacente(Lagarto));
         Simao_Dias.addCidadeAdjacente(new Adjacente(Pedra_Mole));
-        Simao_Dias.addCidadeAdjacente(new Adjacente(Pinhao));
 
         /*Adj de Aracaju*/
         Aracaju.addCidadeAdjacente(new Adjacente(Laranjeiras));
-        Aracaju.addCidadeAdjacente(new Adjacente(Nossa_Senhora_do_Socorro));
         Aracaju.addCidadeAdjacente(new Adjacente(Riachuelo));
         Aracaju.addCidadeAdjacente(new Adjacente(Sao_Cristovao));
         Aracaju.addCidadeAdjacente(new Adjacente(Areia_Branca));
+        Aracaju.addCidadeAdjacente(new Adjacente(Nossa_Senhora_do_Socorro));
 
         //Itabaiana.setNome("Itabaiana Modificada");
     }

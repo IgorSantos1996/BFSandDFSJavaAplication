@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="TrabalhoIA:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/TrabalhoIA_jar</output-path>
+    <root id="archive" name="TrabalhoIA.jar">
+      <element id="module-output" name="TrabalhoIA" />
+      <element id="extracted-dir" path="$USER_HOME$/Downloads/itextpdf-5.4.1.jar/itextpdf-5.4.1.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
