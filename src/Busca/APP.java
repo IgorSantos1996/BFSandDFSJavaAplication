@@ -230,8 +230,8 @@ public class APP implements ActionListener {
         pontoAzul = new ArrayList<>();
         pontoVerde = new ArrayList<>();
         for (int i = 0; i < 22; i++) {
-            pontoAzul.add(new JLabel(new ImageIcon("src/Imagens/pontoAzul.png")));
-            pontoVerde.add(new JLabel(new ImageIcon("src/Imagens/pontoVerde.png")));
+            pontoAzul.add(new JLabel(new ImageIcon(ClassLoader.getSystemResource("Imagens/pontoAzul.png"))));
+            pontoVerde.add(new JLabel(new ImageIcon(ClassLoader.getSystemResource("Imagens/pontoVerde.png"))));
         }
 
         ArrayList<Cidade> c = new ArrayList<>();
