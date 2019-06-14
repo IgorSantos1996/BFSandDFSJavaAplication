@@ -286,8 +286,8 @@ public class APP implements ActionListener {
             e.printStackTrace();
         }
 
-        //BoasVindas b = new BoasVindas(4000);
-        //b.showSplashAndExit();
+        BoasVindas b = new BoasVindas(3000);
+        b.showSplashAndExit();
 
         APP principal = new APP();
 
