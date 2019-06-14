@@ -31,19 +31,18 @@ public class Profundidade {
         Cidade topo = fronteira.getTopo();
         System.out.println("Topo: " + topo.getNome());
         cidades.add(topo);
-
         if (topo.equals(objetivo)) {
             achou = true;
-
         } else {
             if (achou == false) {
                 for (Adjacente a : topo.getAdjacentes()) {
-                    a.getCidade().setCidadePai(topo);
+                    //a.getCidade().setCidadePai(topo);
                     if (!achou) {
                         System.out.println("Verificando se já visitado: " + a.getCidade().getNome());
                         if (a.getCidade().isVisitado() == false) {
                             a.getCidade().setVisitado(true);
                             fronteira.empilhar(a.getCidade());
+                            a.getCidade().setCidadePai(topo);
                             buscar(cidades);
                         }
                     }
@@ -54,11 +53,6 @@ public class Profundidade {
 
         Cidade cityDesempilhada = fronteira.desempilhar();
         System.out.println("Desempilhou: " + cityDesempilhada.getNome());
-//        if (cityDesempilhada == objetivo) {
-//            ArrayList<Cidade> a = new ArrayList<>();
-//            a.add(cityDesempilhada);
-//            return a;
-//        }
         return cidades;
     }
 
@@ -73,10 +67,16 @@ public class Profundidade {
         array = CaminhoPercorrido(inicio, objetivo);
         rota += "\nRota a ser seguida: (PONTOS VERDES)\n";
         int cont = 1;
+        int index = 1;
         for (int i = array.size() - 1; i > -1; i--) {
             Cidade c = array.get(i);
-            rota += "  " + cont + "º " + c.getNome() + "\n";
+            rota += "  " + index + "º " + c.getNome();
+            if(cont == 5){
+                cont = 0;
+                rota += "\n";
+            }
             cont++;
+            index ++;
         }
         return rota;
     }

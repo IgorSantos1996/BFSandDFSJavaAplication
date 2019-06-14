@@ -209,11 +209,11 @@ public class Mapa {
         Sao_Cristovao.addCidadeAdjacente(new Adjacente(Aracaju));
 
         /*Adj de Sao Domingos*/
-        Sao_Domingos.addCidadeAdjacente(new Adjacente(Itabaiana));
+        //Sao_Domingos.addCidadeAdjacente(new Adjacente(Itabaiana));
         Sao_Domingos.addCidadeAdjacente(new Adjacente(Lagarto));
         Sao_Domingos.addCidadeAdjacente(new Adjacente(Macambira));
         Sao_Domingos.addCidadeAdjacente(new Adjacente(Simao_Dias));
-        Sao_Domingos.addCidadeAdjacente(new Adjacente(Itabaiana));
+        //Sao_Domingos.addCidadeAdjacente(new Adjacente(Itabaiana));
         Sao_Domingos.addCidadeAdjacente(new Adjacente(Campo_do_Brito));
 
         /*Adj de Carira*/
